@@ -1,1 +1,1 @@
-"godot version: 3.2" 
+godot version: 3.2
