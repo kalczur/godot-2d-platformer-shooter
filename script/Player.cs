@@ -12,8 +12,16 @@ public class Player : KinematicBody2D
     private int jupmsCnt = 3;
     private PackedScene gun_1 = (PackedScene)GD.Load("res://scene/Gun_1.tscn");
     private PackedScene gun_2 = (PackedScene)GD.Load("res://scene/Gun_2.tscn");
-    private Node gunNode = new Node();
+    private Gun gunNode = new Gun();
     private int currentGun = 2;
+
+    public override void _Ready()
+    {
+        gunNode = (Gun)gun_2.Instance();
+        AddChild(gunNode);
+        gunNode.Name = "gun";
+        currentGun = 2;
+    }
     public override void _PhysicsProcess(float delta)
     {
         if (Input.IsActionPressed("goRight"))
@@ -33,23 +41,29 @@ public class Player : KinematicBody2D
 
         if (Input.IsActionJustPressed("gun_1") && currentGun != 1)
         {
-            GetNode("Gun_2").Free();
-            gunNode = gun_1.Instance();
+            GetNode("gun").Free();
+            gunNode = (Gun)gun_1.Instance();
+            gunNode.Name = "gun";
             AddChild(gunNode);
             currentGun = 1;
         }
         if (Input.IsActionJustPressed("gun_2") && currentGun != 2)
         {
-            GetNode("Gun_1").Free();
-            gunNode = gun_2.Instance();
+            GetNode("gun").Free();
+            gunNode = (Gun)gun_2.Instance();
+            gunNode.Name = "gun";
             AddChild(gunNode);
             currentGun = 2;
         }
         if (Input.IsActionJustPressed("f"))
         {
             kill();
-
         }
+        if (Input.IsActionJustPressed("shot"))
+        {
+            gunNode.shot();
+        }
+
 
         velocity.y += gravity;
         velocity = MoveAndSlide(velocity, floor);

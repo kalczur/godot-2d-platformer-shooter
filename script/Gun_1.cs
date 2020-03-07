@@ -1,17 +1,12 @@
 using Godot;
 using System;
 
-public class Gun_1 : Node2D
+public class Gun_1 : Gun
 {
-    private Vector2 scale = new Vector2(-1, 1);
-    public override void _PhysicsProcess(float delta)
+    public override void shot()
     {
-        var sprite = GetNode<Sprite>("Sprite");
-        var lookVec = GetGlobalMousePosition() - GlobalPosition;
-        GlobalRotation = Mathf.Atan2(lookVec.y, lookVec.x);
-
-        sprite.Scale = scale;
-        scale.y = lookVec.x > 0 ? 1 : -1;
+        bulletNode = (Area2D)bulletScene.Instance();
+        bulletNode.Position = GetNode<Position2D>("Position2D").GlobalPosition;
+        GetTree().Root.GetNode("StageOne").AddChild(bulletNode);
     }
-
 }

@@ -6,25 +6,25 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 640, 26.8668 )
 
-[sub_resource type="CanvasItemMaterial" id=9]
-blend_mode = 1
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 188.128, 19.9371 )
-
-[sub_resource type="CanvasItemMaterial" id=7]
-blend_mode = 1
-
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 192.291, 21.6325 )
+extents = Vector2( 188.128, 19.9371 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id=5]
 blend_mode = 1
 
-[sub_resource type="Environment" id=6]
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 192.291, 21.6325 )
+
+[sub_resource type="CanvasItemMaterial" id=7]
+blend_mode = 1
+
+[sub_resource type="Environment" id=8]
 background_mode = 4
 dof_blur_near_amount = 0.05
 glow_enabled = true
@@ -56,7 +56,7 @@ position = Vector2( 639.783, 691.882 )
 shape = SubResource( 1 )
 
 [node name="LavaColor" type="ColorRect" parent="Lava"]
-material = SubResource( 9 )
+material = SubResource( 2 )
 anchor_right = 0.184
 margin_top = 650.0
 margin_right = 1280.0
@@ -74,10 +74,10 @@ __meta__ = {
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="Platform"]
 position = Vector2( 357.751, 717.983 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="PlatformColor" type="ColorRect" parent="Platform"]
-material = SubResource( 7 )
+material = SubResource( 4 )
 margin_left = 171.0
 margin_top = 699.0
 margin_right = 549.0
@@ -94,10 +94,10 @@ __meta__ = {
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="Platform2"]
 position = Vector2( 357.751, 717.983 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="PlatformColor" type="ColorRect" parent="Platform2"]
-material = SubResource( 8 )
+material = SubResource( 5 )
 margin_left = 171.0
 margin_top = 699.0
 margin_right = 549.0
@@ -110,10 +110,10 @@ __meta__ = {
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="Platform3"]
 position = Vector2( 641.526, 372.314 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="PlatformColor" type="ColorRect" parent="Platform3"]
-material = SubResource( 5 )
+material = SubResource( 7 )
 margin_left = 450.0
 margin_top = 352.0
 margin_right = 832.0
@@ -123,4 +123,4 @@ __meta__ = {
 }
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 6 )
+environment = SubResource( 8 )
