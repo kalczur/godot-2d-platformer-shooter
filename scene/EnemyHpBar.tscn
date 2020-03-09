@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://script/GreenSmall.cs" type="Script" id=1]
+
+[node name="EnemyHpBar" type="Node2D"]
+
+[node name="Red" type="ColorRect" parent="."]
+margin_right = 50.0
+margin_bottom = 5.0
+color = Color( 1, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GreenSmall" type="ColorRect" parent="."]
+margin_right = 50.0
+margin_bottom = 5.0
+color = Color( 0, 1, 0, 1 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}

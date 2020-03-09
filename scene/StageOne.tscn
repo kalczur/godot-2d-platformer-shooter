@@ -2,29 +2,27 @@
 
 [ext_resource path="res://scene/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://scene/PlayerHpBar.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 640, 26.8668 )
+extents = Vector2( 188.128, 19.9371 )
 
 [sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 188.128, 19.9371 )
-
-[sub_resource type="CanvasItemMaterial" id=4]
+[sub_resource type="CanvasItemMaterial" id=3]
 blend_mode = 1
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 191.791, 21.6325 )
 
 [sub_resource type="CanvasItemMaterial" id=5]
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 192.291, 21.6325 )
+extents = Vector2( 642.37, 10 )
 
-[sub_resource type="CanvasItemMaterial" id=7]
-blend_mode = 1
-
-[sub_resource type="Environment" id=8]
+[sub_resource type="Environment" id=7]
 background_mode = 4
 dof_blur_near_amount = 0.05
 glow_enabled = true
@@ -46,25 +44,10 @@ __meta__ = {
 position = Vector2( 1029.83, 253.506 )
 
 [node name="Enemy" parent="." instance=ExtResource( 1 )]
-position = Vector2( 486.359, 248.231 )
+position = Vector2( 477.809, 164.631 )
 
-[node name="Lava" type="StaticBody2D" parent="."]
-
-[node name="LavaCollision" type="CollisionShape2D" parent="Lava"]
-light_mask = 0
-position = Vector2( 639.783, 691.882 )
-shape = SubResource( 1 )
-
-[node name="LavaColor" type="ColorRect" parent="Lava"]
-material = SubResource( 2 )
-anchor_right = 0.184
-margin_top = 650.0
-margin_right = 1280.0
-margin_bottom = 720.0
-color = Color( 0.666667, 0.0941176, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Enemy2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 72.9148, 329.952 )
 
 [node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2( -15.9383, -87.8658 )
@@ -74,10 +57,10 @@ __meta__ = {
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="Platform"]
 position = Vector2( 357.751, 717.983 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="PlatformColor" type="ColorRect" parent="Platform"]
-material = SubResource( 4 )
+material = SubResource( 2 )
 margin_left = 171.0
 margin_top = 699.0
 margin_right = 549.0
@@ -94,10 +77,10 @@ __meta__ = {
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="Platform2"]
 position = Vector2( 357.751, 717.983 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="PlatformColor" type="ColorRect" parent="Platform2"]
-material = SubResource( 5 )
+material = SubResource( 3 )
 margin_left = 171.0
 margin_top = 699.0
 margin_right = 549.0
@@ -110,10 +93,10 @@ __meta__ = {
 
 [node name="PlatformCollision" type="CollisionShape2D" parent="Platform3"]
 position = Vector2( 641.526, 372.314 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="PlatformColor" type="ColorRect" parent="Platform3"]
-material = SubResource( 7 )
+material = SubResource( 5 )
 margin_left = 450.0
 margin_top = 352.0
 margin_right = 832.0
@@ -122,5 +105,24 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Platform4" type="StaticBody2D" parent="."]
+
+[node name="PlatformColor" type="ColorRect" parent="Platform4"]
+material = SubResource( 5 )
+margin_left = 3.0
+margin_top = 656.0
+margin_right = 1283.0
+margin_bottom = 723.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform4"]
+position = Vector2( 638.154, 665.323 )
+shape = SubResource( 6 )
+
+[node name="PlayerHpBar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1058.66, 25.4034 )
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource( 8 )
+environment = SubResource( 7 )
