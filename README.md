@@ -12,6 +12,6 @@ Gun change: 1, 2, 3
 2: dmg: 40hp, reload: 1s
 ```
 
-![Game screen. Version 0.01](https://github.com/kalczur/godot-2d-platformer-shooter/blob/master/textures/GameScreen.png
+![Game screen. Version 0.01](https://github.com/kalczur/godot-2d-platformer-shooter/blob/master/textures/GameScreen.png)
 
 <i>godot version: 3.2</i>
