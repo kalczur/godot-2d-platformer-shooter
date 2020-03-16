@@ -3,18 +3,23 @@ using System;
 
 public class Gun : Node2D
 {
-
-    protected Vector2 scale = new Vector2(-1, 1);
-    protected PackedScene bulletScene = GD.Load<PackedScene>("res://scene/Bullet.tscn");
-    protected Area2D bulletNode = new Area2D();
-    public override void _PhysicsProcess(float delta)
-    {
-        var sprite = GetNode<Sprite>("Sprite");
-        var lookVec = GetGlobalMousePosition() - GlobalPosition;
-        GlobalRotation = Mathf.Atan2(lookVec.y, lookVec.x);
-
-        sprite.Scale = scale;
-        scale.y = lookVec.x > 0 ? 1 : -1;
-    }
-    public virtual void shot() { }
+  protected PackedScene bulletScene = GD.Load<PackedScene>("res://scene/Bullet.tscn");
+  protected Bullet bulletNode = new Bullet();
+  public float dmg;
+  public int bulletSpeed;
+  public bool ready;
+  public virtual void shot(Vector2 where, float dmg)
+  {
+    bulletNode = (Bullet)bulletScene.Instance();
+    bulletNode.dmg = dmg;
+    bulletNode.speed = bulletSpeed;
+    bulletNode.lookVec = where;
+    bulletNode.Position = GetNode<Position2D>("Position2D").GlobalPosition;
+    GetTree().Root.GetNode("StageOne").AddChild(bulletNode);
+    ready = false;
+  }
+  public void _on_Reload_timeout()
+  {
+    ready = true;
+  }
 }
