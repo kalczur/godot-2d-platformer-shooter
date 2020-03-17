@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scene/Enemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scene/PlayerHpBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://script/ScreenShake.cs" type="Script" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 188.128, 19.9371 )
@@ -30,7 +31,7 @@ glow_intensity = 0.14
 glow_strength = 0.95
 glow_blend_mode = 0
 
-[node name="StageOne" type="Node2D"]
+[node name="Gameplay" type="Node2D"]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 1280.0
@@ -126,3 +127,13 @@ position = Vector2( 1058.66, 25.4034 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 7 )
+
+[node name="ScreenShake" type="Node2D" parent="."]
+script = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="ScreenShake"]
+
+[node name="GameplayCamera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+[connection signal="tween_all_completed" from="ScreenShake/Tween" to="ScreenShake" method="_on_Tween_tween_all_completed"]

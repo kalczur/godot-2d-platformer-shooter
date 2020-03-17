@@ -5,20 +5,21 @@ public class Player : Character
 {
   bool onGround = false;
   int jumpPower = -1000;
-  int jupmsCnt = 3;
+  int jupmCount = 3;
   int currentGun = 2;
+  int screenShakePower;
   public override void _Ready()
   {
     speed = 400;
     hp = 200;
     baseHp = 200;
-    hpBar = (ColorRect)GetTree().Root.GetNode("StageOne/PlayerHpBar/Green");
+    hpBar = GetTree().Root.GetNode("Gameplay/PlayerHpBar/Green") as ColorRect;
     velocity = new Vector2();
     floor = new Vector2(0, -1);
     gravity = 50;
-    gun_1 = (PackedScene)GD.Load("res://scene/Gun_1.tscn");
-    gun_2 = (PackedScene)GD.Load("res://scene/Gun_2.tscn");
-    gunNode = (Gun)gun_2.Instance();
+    gun1 = GD.Load("res://scene/Gun1.tscn") as PackedScene;
+    gun2 = GD.Load("res://scene/Gun2.tscn") as PackedScene;
+    gunNode = gun2.Instance() as Gun;
     AddChild(gunNode);
     gunNode.Name = "gun";
     currentGun = 2;
@@ -36,9 +37,9 @@ public class Player : Character
       velocity.x = 0;
 
     if (Input.IsActionJustPressed("jump"))
-      if (jupmsCnt < 3)
+      if (jupmCount < 3)
       {
-        jupmsCnt++;
+        jupmCount++;
         velocity.y = jumpPower;
         onGround = false;
       }
@@ -46,20 +47,20 @@ public class Player : Character
     if (Input.IsActionJustPressed("gun_1") && currentGun != 1)
     {
       GetNode("gun").Free();
-      gunNode = (Gun)gun_1.Instance();
+      gunNode = gun1.Instance() as Gun;
       gunNode.Name = "gun";
       AddChild(gunNode);
       currentGun = 1;
-      gunSprite = gunNode.GetNode<Sprite>("Sprite");
+      gunSprite = gunNode.GetNode("Sprite") as Sprite;
     }
     if (Input.IsActionJustPressed("gun_2") && currentGun != 2)
     {
       GetNode("gun").Free();
-      gunNode = (Gun)gun_2.Instance();
+      gunNode = gun2.Instance() as Gun;
       gunNode.Name = "gun";
       AddChild(gunNode);
       currentGun = 2;
-      gunSprite = gunNode.GetNode<Sprite>("Sprite");
+      gunSprite = gunNode.GetNode("Sprite") as Sprite;
     }
     velocity.y += gravity;
     velocity = MoveAndSlide(velocity, floor);
@@ -69,26 +70,35 @@ public class Player : Character
       if (!onGround)
       {
         onGround = true;
-        jupmsCnt = 0;
+        jupmCount = 0;
       }
     }
     else
       if (onGround)
     {
       onGround = false;
-      jupmsCnt = 1;
+      jupmCount = 1;
     }
 
-    lookVec = GetGlobalMousePosition() - GlobalPosition;
-    gunNode.GlobalRotation = Mathf.Atan2(lookVec.y, lookVec.x);
-    scale.y = lookVec.x > 0 ? 1 : -1;
+    lookVector = GetGlobalMousePosition() - GlobalPosition;
+    gunNode.GlobalRotation = Mathf.Atan2(lookVector.y, lookVector.x);
+    scale.y = lookVector.x > 0 ? 1 : -1;
     gunSprite.Scale = scale;
 
     if (Input.IsActionJustPressed("shot") && gunNode.ready)
-      gunNode.shot(lookVec, gunNode.dmg);
+      gunNode.shot(lookVector, gunNode.damage);
 
   }
-  protected override void kill()
+  public override void Hit(float damgae)
+  {
+    if (hp < 1)
+      Kill();
+    hp -= damgae;
+    hpBar.SetSize(new Vector2((hp / baseHp) * baseSizeHpBar.x, baseSizeHpBar.y));
+    screenShakePower = damgae < 40 ? 1 : 2;
+    GetParent().GetNode<ScreenShake>("ScreenShake").ScreenShakeStart(screenShakePower, screenShakePower * 10, screenShakePower * 100);
+  }
+  protected override void Kill()
   {
     GetTree().ReloadCurrentScene();
   }

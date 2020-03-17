@@ -1,11 +1,12 @@
+
 using Godot;
 using System;
 
-public class Gun_1 : Gun
+public class Gun1 : Gun
 {
   public override void _Ready()
   {
     bulletSpeed = 350;
-    dmg = 20;
+    damage = 20;
   }
 }

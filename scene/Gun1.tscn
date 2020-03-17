@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://textures/gun_1.png" type="Texture" id=1]
-[ext_resource path="res://script/Gun_1.cs" type="Script" id=2]
+[ext_resource path="res://script/Gun1.cs" type="Script" id=2]
 
-[node name="Gun_1" type="Node2D"]
+[node name="Gun1" type="Node2D"]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -9,19 +9,19 @@ public class Enemy : Character
     velocity = new Vector2();
     hp = 100;
     baseHp = 100;
-    hpBar = (ColorRect)GetNode("HpBar/Green");
-    PackedScene gun_1 = (PackedScene)GD.Load("res://scene/Gun_1.tscn");
-    gunNode = (Gun)gun_1.Instance();
-    gunSprite = gunNode.GetNode<Sprite>("Sprite");
+    hpBar = GetNode("HpBar/Green") as ColorRect;
+    PackedScene gun1 = GD.Load("res://scene/Gun1.tscn") as PackedScene;
+    gunNode = gun1.Instance() as Gun;
+    gunSprite = gunNode.GetNode("Sprite") as Sprite;
     AddChild(gunNode);
     baseSizeHpBar = hpBar.RectSize;
   }
   public override void _PhysicsProcess(float delta)
   {
-    lookVec = GetTree().Root.GetNode<KinematicBody2D>("StageOne/Player").GlobalPosition - GlobalPosition;
+    lookVector = GetTree().Root.GetNode<KinematicBody2D>("Gameplay/Player").GlobalPosition - GlobalPosition;
 
-    if (Math.Abs(lookVec.x) > 200)
-      velocity.x = lookVec.x > 0 ? speed : -speed;
+    if (Math.Abs(lookVector.x) > 200)
+      velocity.x = lookVector.x > 0 ? speed : -speed;
     else
       velocity.x = 0;
 
@@ -30,14 +30,14 @@ public class Enemy : Character
     if (IsOnWall())
       velocity.y = -600;
 
-    gunNode.GlobalRotation = Mathf.Atan2(lookVec.y, lookVec.x);
-    scale.y = lookVec.x > 0 ? 1 : -1;
+    gunNode.GlobalRotation = Mathf.Atan2(lookVector.y, lookVector.x);
+    scale.y = lookVector.x > 0 ? 1 : -1;
     gunSprite.Scale = scale;
 
     if (gunNode.ready)
-      gunNode.shot(lookVec, gunNode.dmg);
+      gunNode.shot(lookVector, gunNode.damage);
   }
-  protected override void kill()
+  protected override void Kill()
   {
     QueueFree();
   }

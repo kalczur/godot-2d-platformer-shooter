@@ -5,14 +5,14 @@ public class Bullet : Area2D
 {
   public int speed;
   private Vector2 velocity = new Vector2();
-  public Vector2 lookVec = new Vector2();
+  public Vector2 lookVector = new Vector2();
   private float x;
   private float y;
-  public float dmg;
+  public float damage;
   public override void _Ready()
   {
-    x = lookVec.Normalized().x * speed;
-    y = lookVec.Normalized().y * speed;
+    x = lookVector.Normalized().x * speed;
+    y = lookVector.Normalized().y * speed;
   }
 
   public override void _PhysicsProcess(float delta)
@@ -25,8 +25,8 @@ public class Bullet : Area2D
   {
     if (body is Character)
     {
-      Character character = (Character)body;
-      character.hit(dmg);
+      Character character = body as Character;
+      character.Hit(damage);
     }
     QueueFree();
   }
