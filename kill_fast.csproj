@@ -57,11 +57,13 @@
     <Compile Include="script\Bullet.cs" />
     <Compile Include="script\Character.cs" />
     <Compile Include="script\Enemy.cs" />
+    <Compile Include="script\Gameplay.cs" />
     <Compile Include="script\Gun.cs" />
     <Compile Include="script\Gun1.cs" />
     <Compile Include="script\Gun2.cs" />
     <Compile Include="script\Lava.cs" />
     <Compile Include="script\NewGame.cs" />
+    <Compile Include="script\Platform.cs" />
     <Compile Include="script\Player.cs" />
     <Compile Include="script\ScreenShake.cs" />
     <Compile Include="script\Trail.cs" />

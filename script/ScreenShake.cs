@@ -21,9 +21,4 @@ public class ScreenShake : Node2D
     tween.Start();
 
   }
-
-  public void _on_Tween_tween_all_completed()
-  {
-    currentShakePriority = 0;
-  }
 }

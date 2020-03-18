@@ -7,7 +7,7 @@
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 14, 0 )
+position = Vector2( 17.393, -1.89556 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 1 )
 
@@ -15,7 +15,8 @@ texture = ExtResource( 1 )
 cast_to = Vector2( 1, 0 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 36.3659, -1.05408 )
+position = Vector2( 57.4398, -5.56809 )
+scale = Vector2( -1, 1 )
 
 [node name="Reload" type="Timer" parent="."]
 autostart = true

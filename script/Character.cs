@@ -18,6 +18,7 @@ public class Character : KinematicBody2D
   protected PackedScene gun2;
   protected PackedScene gun3;
   protected Gun gunNode = new Gun();
+  protected Sprite charcterSprite;
   public virtual void Hit(float damgae)
   {
     if (hp < 1)
@@ -26,5 +27,5 @@ public class Character : KinematicBody2D
     velocity.y += -300;
     hpBar.SetSize(new Vector2((hp / baseHp) * baseSizeHpBar.x, baseSizeHpBar.y));
   }
-  protected virtual void Kill() { }
+  public virtual void Kill() { }
 }

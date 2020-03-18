@@ -37,7 +37,7 @@ public class Enemy : Character
     if (gunNode.ready)
       gunNode.shot(lookVector, gunNode.damage);
   }
-  protected override void Kill()
+  public override void Kill()
   {
     QueueFree();
   }

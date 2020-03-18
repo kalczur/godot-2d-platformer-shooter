@@ -23,16 +23,25 @@ public class Player : Character
     AddChild(gunNode);
     gunNode.Name = "gun";
     currentGun = 2;
-    gunSprite = gunSprite = gunNode.GetNode<Sprite>("Sprite");
+    charcterSprite = GetNode<Sprite>("Sprite");
+    gunSprite = gunNode.GetNode<Sprite>("Sprite");
     baseSizeHpBar = hpBar.RectSize;
   }
   public override void _PhysicsProcess(float delta)
   {
 
     if (Input.IsActionPressed("goRight"))
+    {
+      charcterSprite.FlipH = false;
       velocity.x = speed;
+    }
+
     else if (Input.IsActionPressed("goLeft"))
+    {
+      charcterSprite.FlipH = true;
       velocity.x = -speed;
+    }
+
     else
       velocity.x = 0;
 
@@ -86,7 +95,10 @@ public class Player : Character
     gunSprite.Scale = scale;
 
     if (Input.IsActionJustPressed("shot") && gunNode.ready)
+    {
+      charcterSprite.FlipH = lookVector.x < 0 ? true : false;
       gunNode.shot(lookVector, gunNode.damage);
+    }
 
   }
   public override void Hit(float damgae)
@@ -98,7 +110,7 @@ public class Player : Character
     screenShakePower = damgae < 40 ? 1 : 2;
     GetParent().GetNode<ScreenShake>("ScreenShake").ScreenShakeStart(screenShakePower, screenShakePower * 10, screenShakePower * 100);
   }
-  protected override void Kill()
+  public override void Kill()
   {
     GetTree().ReloadCurrentScene();
   }
