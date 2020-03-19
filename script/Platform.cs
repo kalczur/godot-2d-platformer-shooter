@@ -7,11 +7,11 @@ public class Platform : KinematicBody2D
   private Vector2 velocity = new Vector2();
   public override void _PhysicsProcess(float delta)
   {
-    velocity.x = speed;
+    velocity.x = -speed;
     MoveAndSlide(velocity);
 
-    if (GlobalPosition.x > 1430)
-      GlobalPosition = new Vector2(-150, (float)GD.RandRange(70, 600));
-  }
 
+    if (GlobalPosition.x < -150)
+      GlobalPosition = new Vector2(1430, (float)GD.RandRange(50, 600));
+  }
 }

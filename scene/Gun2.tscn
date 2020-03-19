@@ -15,7 +15,7 @@ texture = ExtResource( 1 )
 cast_to = Vector2( 1, 0 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 57.4398, -5.56809 )
+position = Vector2( 66.2682, -4.59615 )
 scale = Vector2( -1, 1 )
 
 [node name="Reload" type="Timer" parent="."]

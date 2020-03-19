@@ -58,6 +58,7 @@
     <Compile Include="script\Character.cs" />
     <Compile Include="script\Enemy.cs" />
     <Compile Include="script\Gameplay.cs" />
+    <Compile Include="script\GameplayBackground.cs" />
     <Compile Include="script\Gun.cs" />
     <Compile Include="script\Gun1.cs" />
     <Compile Include="script\Gun2.cs" />
