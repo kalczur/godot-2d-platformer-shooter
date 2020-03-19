@@ -16,6 +16,7 @@ public class Enemy : Character
     AddChild(gunNode);
     baseSizeHpBar = hpBar.RectSize;
     score = GetTree().Root.GetNode("Gameplay/Score") as Label;
+    charcterSprite = GetNode<Sprite>("Sprite");
   }
   public override void _PhysicsProcess(float delta)
   {
@@ -35,6 +36,7 @@ public class Enemy : Character
     gunNode.GlobalRotation = Mathf.Atan2(lookVector.y, lookVector.x);
     scale.y = lookVector.x > 0 ? 1 : -1;
     gunSprite.Scale = scale;
+    charcterSprite.FlipH = scale.y < 0 ? true : false;
 
     if (gunNode.ready)
       gunNode.shot(lookVector, gunNode.damage);

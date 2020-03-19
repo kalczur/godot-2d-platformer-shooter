@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://script/Gameplay.cs" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://scene/GameplayBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://script/Lava.cs" type="Script" id=7]
 [ext_resource path="res://scene/FirstAidKit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scene/Enemy.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -63,7 +64,7 @@ position = Vector2( 1017.79, 200.719 )
 position = Vector2( 1311.42, 485.079 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 585.826, 70.0457 )
+position = Vector2( 248.476, 127.949 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -118,6 +119,9 @@ text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Enemy" parent="." instance=ExtResource( 9 )]
+position = Vector2( 716.084, 485.27 )
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
 [connection signal="timeout" from="FirstAidKitSpawnTimer" to="." method="_on_FirstAidKitSpawnTimer_timeout"]

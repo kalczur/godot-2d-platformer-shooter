@@ -15,7 +15,7 @@ texture = ExtResource( 1 )
 cast_to = Vector2( 1, 0 )
 
 [node name="Position2D" type="Position2D" parent="."]
-position = Vector2( 33, 0.0228564 )
+position = Vector2( 66.3681, -2.76039 )
 rotation = 8.74228e-08
 
 [node name="Reload" type="Timer" parent="."]
