@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://script/Gameplay.cs" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -7,23 +7,37 @@
 [ext_resource path="res://scene/Platform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scene/GameplayBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://script/Lava.cs" type="Script" id=7]
+[ext_resource path="res://scene/FirstAidKit.tscn" type="PackedScene" id=8]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
+ambient_light_energy = 8.88
 dof_blur_far_distance = 0.5
 dof_blur_far_transition = 0.91
 dof_blur_far_quality = 0
 dof_blur_near_distance = 0.02
 dof_blur_near_amount = 0.05
 glow_enabled = true
-glow_intensity = 1.03
-glow_strength = 1.2
+glow_strength = 1.25
+glow_blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 686.59, 38.1679 )
+extents = Vector2( 1061.19, 38.1679 )
+
+[sub_resource type="CanvasItemMaterial" id=4]
+blend_mode = 1
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://font/Amatic-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 40
+use_filter = true
+extra_spacing_char = 5
+font_data = SubResource( 5 )
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource( 1 )
@@ -49,7 +63,7 @@ position = Vector2( 1017.79, 200.719 )
 position = Vector2( 1311.42, 485.079 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 452.431, 174.159 )
+position = Vector2( 585.826, 70.0457 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -63,26 +77,47 @@ script = ExtResource( 4 )
 anchor_mode = 0
 current = true
 
-[node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
 [node name="Lava" type="Area2D" parent="."]
 position = Vector2( 641.587, 691.798 )
 script = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="Lava"]
 material = SubResource( 2 )
-margin_left = -678.0
-margin_top = -53.0
-margin_right = 674.0
-margin_bottom = 40.0
+margin_left = -677.0
+margin_top = -7.0
+margin_right = 672.0
+margin_bottom = 86.0
 color = Color( 1, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
+position = Vector2( -0.431946, 42.1598 )
 shape = SubResource( 3 )
-[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
+
+[node name="FirstAidKit" parent="." instance=ExtResource( 8 )]
+position = Vector2( 1024.29, 98.8549 )
+
+[node name="EnemySpawnTimer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="FirstAidKitSpawnTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
+[node name="Score" type="Label" parent="."]
+material = SubResource( 4 )
+margin_left = 25.0
+margin_top = 10.0
+margin_right = 370.0
+margin_bottom = 54.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
+[connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
+[connection signal="timeout" from="FirstAidKitSpawnTimer" to="." method="_on_FirstAidKitSpawnTimer_timeout"]

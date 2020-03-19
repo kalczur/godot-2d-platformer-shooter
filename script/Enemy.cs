@@ -5,7 +5,7 @@ public class Enemy : Character
   public override void _Ready()
   {
     speed = 100;
-    gravity = 50;
+    gravity = 500;
     velocity = new Vector2();
     hp = 100;
     baseHp = 100;
@@ -15,20 +15,22 @@ public class Enemy : Character
     gunSprite = gunNode.GetNode("Sprite") as Sprite;
     AddChild(gunNode);
     baseSizeHpBar = hpBar.RectSize;
+    score = GetTree().Root.GetNode("Gameplay/Score") as Label;
   }
   public override void _PhysicsProcess(float delta)
   {
     lookVector = GetTree().Root.GetNode<KinematicBody2D>("Gameplay/Player").GlobalPosition - GlobalPosition;
 
-    if (Math.Abs(lookVector.x) > 200)
+    if (Math.Abs(lookVector.x) > 80)
       velocity.x = lookVector.x > 0 ? speed : -speed;
     else
-      velocity.x = 0;
+      velocity.x = lookVector.x > 0 ? -speed : speed;
 
-    velocity.y += gravity;
     MoveAndSlide(velocity, floor);
+    velocity.y = gravity;
+
     if (IsOnWall())
-      velocity.y = -600;
+      velocity.y = -gravity * 2;
 
     gunNode.GlobalRotation = Mathf.Atan2(lookVector.y, lookVector.x);
     scale.y = lookVector.x > 0 ? 1 : -1;

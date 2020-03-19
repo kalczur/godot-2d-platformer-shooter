@@ -8,7 +8,7 @@ public class Platform : KinematicBody2D
   public override void _PhysicsProcess(float delta)
   {
     velocity.x = -speed;
-    MoveAndSlide(velocity);
+    MoveAndCollide(velocity * delta);
 
 
     if (GlobalPosition.x < -150)

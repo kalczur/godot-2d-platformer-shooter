@@ -19,13 +19,17 @@ public class Character : KinematicBody2D
   protected PackedScene gun3;
   protected Gun gunNode = new Gun();
   protected Sprite charcterSprite;
+  protected Label score;
   public virtual void Hit(float damgae)
   {
-    if (hp < 1)
-      Kill();
     hp -= damgae;
-    velocity.y += -300;
+    velocity.y += -600;
     hpBar.SetSize(new Vector2((hp / baseHp) * baseSizeHpBar.x, baseSizeHpBar.y));
+    if (hp < 1)
+    {
+      score.Text = $"{uint.Parse(score.Text) + 155}";
+      Kill();
+    }
   }
   public virtual void Kill() { }
 }

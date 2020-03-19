@@ -16,7 +16,7 @@ public class Player : Character
     hpBar = GetTree().Root.GetNode("Gameplay/PlayerHpBar/Green") as ColorRect;
     velocity = new Vector2();
     floor = new Vector2(0, -1);
-    gravity = 50;
+    gravity = 40;
     gun1 = GD.Load("res://scene/Gun1.tscn") as PackedScene;
     gun2 = GD.Load("res://scene/Gun2.tscn") as PackedScene;
     gunNode = gun2.Instance() as Gun;
@@ -41,7 +41,6 @@ public class Player : Character
       charcterSprite.FlipH = true;
       velocity.x = -speed;
     }
-
     else
       velocity.x = 0;
 
@@ -71,7 +70,19 @@ public class Player : Character
       currentGun = 2;
       gunSprite = gunNode.GetNode("Sprite") as Sprite;
     }
-    velocity.y += gravity;
+
+    if (jupmCount > 0)
+      velocity.y += gravity;
+    else
+      velocity.y = gravity * 10;
+
+    if (Input.IsActionPressed("shot") && gunNode.ready)
+    {
+      charcterSprite.FlipH = lookVector.x < 0 ? true : false;
+      velocity = lookVector.Normalized() * -speed * 2;
+      gunNode.shot(lookVector, gunNode.damage);
+    }
+
     velocity = MoveAndSlide(velocity, floor);
 
     if (IsOnFloor())
@@ -93,22 +104,25 @@ public class Player : Character
     gunNode.GlobalRotation = Mathf.Atan2(lookVector.y, lookVector.x);
     scale.y = lookVector.x > 0 ? 1 : -1;
     gunSprite.Scale = scale;
-
-    if (Input.IsActionJustPressed("shot") && gunNode.ready)
-    {
-      charcterSprite.FlipH = lookVector.x < 0 ? true : false;
-      gunNode.shot(lookVector, gunNode.damage);
-    }
-
   }
   public override void Hit(float damgae)
   {
-    if (hp < 1)
-      Kill();
     hp -= damgae;
-    hpBar.SetSize(new Vector2((hp / baseHp) * baseSizeHpBar.x, baseSizeHpBar.y));
+    UpdateHp();
     screenShakePower = damgae < 40 ? 1 : 2;
     GetParent().GetNode<ScreenShake>("ScreenShake").ScreenShakeStart(screenShakePower, screenShakePower * 10, screenShakePower * 100);
+
+    if (hp < 1)
+      Kill();
+  }
+  public void Heal(float healHp)
+  {
+    hp = hp + healHp > baseHp ? baseHp : hp + healHp;
+    UpdateHp();
+  }
+  private void UpdateHp()
+  {
+    hpBar.SetSize(new Vector2((hp / baseHp) * baseSizeHpBar.x, baseSizeHpBar.y));
   }
   public override void Kill()
   {
