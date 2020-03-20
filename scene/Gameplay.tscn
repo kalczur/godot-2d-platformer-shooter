@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://script/Gameplay.cs" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://script/Lava.cs" type="Script" id=7]
 [ext_resource path="res://scene/FirstAidKit.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scene/Enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scene/C4.tscn" type="PackedScene" id=10]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -55,16 +56,16 @@ position = Vector2( 703.753, 599.548 )
 position = Vector2( 322.244, 294.329 )
 
 [node name="Platform3" parent="." instance=ExtResource( 5 )]
-position = Vector2( -57.2413, 508.401 )
+position = Vector2( -82.4166, 508.401 )
 
 [node name="Platform4" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1017.79, 200.719 )
 
 [node name="Platform5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1311.42, 485.079 )
+position = Vector2( 1361.77, 492.632 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 248.476, 127.949 )
+position = Vector2( 781.599, 437.35 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -100,12 +101,19 @@ shape = SubResource( 3 )
 [node name="FirstAidKit" parent="." instance=ExtResource( 8 )]
 position = Vector2( 1024.29, 98.8549 )
 
+[node name="C4" parent="." instance=ExtResource( 10 )]
+position = Vector2( 460.136, -63.467 )
+
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
 
 [node name="FirstAidKitSpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
+autostart = true
+
+[node name="C4SpawnTimer" type="Timer" parent="."]
+wait_time = 8.0
 autostart = true
 
 [node name="Score" type="Label" parent="."]
@@ -121,7 +129,8 @@ __meta__ = {
 }
 
 [node name="Enemy" parent="." instance=ExtResource( 9 )]
-position = Vector2( 716.084, 485.27 )
+position = Vector2( 305.135, 91.7747 )
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
 [connection signal="timeout" from="FirstAidKitSpawnTimer" to="." method="_on_FirstAidKitSpawnTimer_timeout"]
+[connection signal="timeout" from="C4SpawnTimer" to="." method="_on_C4SpawnTimer_timeout"]
