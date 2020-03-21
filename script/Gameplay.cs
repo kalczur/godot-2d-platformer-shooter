@@ -3,38 +3,36 @@ using System;
 
 public class Gameplay : Node2D
 {
-  PackedScene enemy = GD.Load("res://scene/Enemy.tscn") as PackedScene;
+  PackedScene enemy1 = GD.Load("res://scene/Enemy1.tscn") as PackedScene;
+  PackedScene enemy2 = GD.Load("res://scene/Enemy2.tscn") as PackedScene;
+  PackedScene enemy3 = GD.Load("res://scene/Enemy3.tscn") as PackedScene;
   PackedScene firstAidKit = GD.Load("res://scene/FirstAidKit.tscn") as PackedScene;
   PackedScene c4 = GD.Load("res://scene/C4.tscn") as PackedScene;
+  Random random = new Random();
 
-  private void SpawnEnemy()
+  private void Spawn(PackedScene packedScene)
   {
-    var enemyNode = enemy.Instance() as Enemy;
-    enemyNode.Position = new Vector2((float)GD.RandRange(40, (GetViewportRect().Size.x) - 40), -100);
-    AddChild(enemyNode);
-  }
-  private void SpawnFirstAidKit()
-  {
-    var firstAidKitNode = firstAidKit.Instance() as FirstAidKit;
-    firstAidKitNode.Position = new Vector2((float)GD.RandRange(40, (GetViewportRect().Size.x) - 40), -100);
-    AddChild(firstAidKitNode);
-  }
-  private void SpawnC4()
-  {
-    var c4Node = c4.Instance() as FirstAidKit;
-    c4Node.Position = new Vector2((float)GD.RandRange(40, (GetViewportRect().Size.x) - 40), -100);
-    AddChild(c4Node);
+    var sceneNode = packedScene.Instance() as Node2D;
+    sceneNode.Position = new Vector2((float)GD.RandRange(40, (GetViewportRect().Size.x) - 40), -100);
+    AddChild(sceneNode);
   }
   public void _on_EnemySpawnTimer_timeout()
   {
-    SpawnEnemy();
+    int randomNumber = random.Next(100);
+    if (randomNumber < 33)
+      Spawn(enemy1);
+    else if (randomNumber < 66)
+      Spawn(enemy2);
+    else
+      Spawn(enemy3);
+
   }
   public void _on_FirstAidKitSpawnTimer_timeout()
   {
-    SpawnFirstAidKit();
+    Spawn(firstAidKit);
   }
-  public void _on_C4pawnTimer_timeout()
+  public void _on_C4SpawnTimer_timeout()
   {
-    SpawnC4();
+    Spawn(c4);
   }
 }

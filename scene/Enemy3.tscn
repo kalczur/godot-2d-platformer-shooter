@@ -1,0 +1,100 @@
+[gd_scene load_steps=51 format=2]
+
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_003.png" type="Texture" id=1]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_004.png" type="Texture" id=2]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_002.png" type="Texture" id=3]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_001.png" type="Texture" id=4]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_000.png" type="Texture" id=5]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_005.png" type="Texture" id=6]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_011.png" type="Texture" id=7]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_008.png" type="Texture" id=8]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_005.png" type="Texture" id=9]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_002.png" type="Texture" id=10]
+[ext_resource path="res://textures/Enemy3/Jump Loop/0_Golem_Jump Loop_002.png" type="Texture" id=11]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_004.png" type="Texture" id=12]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_008.png" type="Texture" id=13]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_009.png" type="Texture" id=14]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_001.png" type="Texture" id=15]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_004.png" type="Texture" id=16]
+[ext_resource path="res://textures/Enemy3/Jump Loop/0_Golem_Jump Loop_004.png" type="Texture" id=17]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_006.png" type="Texture" id=18]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_003.png" type="Texture" id=19]
+[ext_resource path="res://textures/Enemy3/Jump Loop/0_Golem_Jump Loop_000.png" type="Texture" id=20]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_007.png" type="Texture" id=21]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_006.png" type="Texture" id=22]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_006.png" type="Texture" id=23]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_000.png" type="Texture" id=24]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_001.png" type="Texture" id=25]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_003.png" type="Texture" id=26]
+[ext_resource path="res://textures/Enemy3/Jump Loop/0_Golem_Jump Loop_003.png" type="Texture" id=27]
+[ext_resource path="res://textures/Enemy3/Jump Loop/0_Golem_Jump Loop_001.png" type="Texture" id=28]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_005.png" type="Texture" id=29]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_010.png" type="Texture" id=30]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_011.png" type="Texture" id=31]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_000.png" type="Texture" id=32]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_002.png" type="Texture" id=33]
+[ext_resource path="res://textures/Enemy3/Jump Loop/0_Golem_Jump Loop_005.png" type="Texture" id=34]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_010.png" type="Texture" id=35]
+[ext_resource path="res://textures/Enemy3/Hurt/0_Golem_Hurt_007.png" type="Texture" id=36]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_007.png" type="Texture" id=37]
+[ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_009.png" type="Texture" id=38]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_011.png" type="Texture" id=39]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_009.png" type="Texture" id=40]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_010.png" type="Texture" id=41]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_012.png" type="Texture" id=42]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_014.png" type="Texture" id=43]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_013.png" type="Texture" id=44]
+[ext_resource path="res://textures/Enemy3/Dying/0_Golem_Dying_008.png" type="Texture" id=45]
+[ext_resource path="res://scene/HpBar.tscn" type="PackedScene" id=46]
+[ext_resource path="res://scene/Gun2.tscn" type="PackedScene" id=47]
+[ext_resource path="res://script/Enemy.cs" type="Script" id=48]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 20 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 17 ), ExtResource( 34 ) ],
+"loop": true,
+"name": "Jump Loop",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 15 ), ExtResource( 33 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 39 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 43 ) ],
+"loop": false,
+"name": "Dying",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 24 ), ExtResource( 25 ), ExtResource( 10 ), ExtResource( 26 ), ExtResource( 12 ), ExtResource( 29 ), ExtResource( 22 ), ExtResource( 36 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 30 ), ExtResource( 31 ) ],
+"loop": false,
+"name": "Hurt",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 23 ), ExtResource( 37 ), ExtResource( 8 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Runing",
+"speed": 20.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 13.6735, 28.8734 )
+
+[node name="Enemy3" type="KinematicBody2D"]
+script = ExtResource( 48 )
+hp = 150.0
+speed = 150
+enemyPoints = 420
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -30 )
+frames = SubResource( 1 )
+animation = "Hurt"
+
+[node name="HpBar" parent="." instance=ExtResource( 46 )]
+position = Vector2( -25.0177, -72.2734 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.926575, -14.8253 )
+shape = SubResource( 2 )
+
+[node name="Gun" parent="." instance=ExtResource( 47 )]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
