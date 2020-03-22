@@ -73,7 +73,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 13.6735, 28.8734 )
+extents = Vector2( 9.51042, 32.9709 )
 
 [node name="Enemy3" type="KinematicBody2D"]
 script = ExtResource( 48 )
@@ -90,7 +90,7 @@ animation = "Hurt"
 position = Vector2( -25.0177, -72.2734 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.926575, -14.8253 )
+position = Vector2( 0.429397, -17.9247 )
 shape = SubResource( 2 )
 
 [node name="Gun" parent="." instance=ExtResource( 47 )]

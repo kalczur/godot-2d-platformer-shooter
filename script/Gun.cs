@@ -10,9 +10,16 @@ public class Gun : Node2D
   protected PackedScene bulletScene = GD.Load<PackedScene>("res://scene/Bullet.tscn");
   protected Bullet bulletNode = new Bullet();
 
+  AnimatedSprite animatedSprite = new AnimatedSprite();
   public bool ready;
+
+  public override void _Ready()
+  {
+    animatedSprite = GetNode("FireAnimatedSprite") as AnimatedSprite;
+  }
   public virtual void shot(Vector2 where, float damage)
   {
+    animatedSprite.Play("Fire");
     bulletNode = (Bullet)bulletScene.Instance();
     bulletNode.damage = damage;
     bulletNode.speed = bulletSpeed;
@@ -25,4 +32,10 @@ public class Gun : Node2D
   {
     ready = true;
   }
+  public void _on_FireAnimatedSprite_animation_finished()
+  {
+    animatedSprite.Stop();
+    animatedSprite.Frame = 0;
+  }
+
 }

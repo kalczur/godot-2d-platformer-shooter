@@ -19,10 +19,10 @@ public class GameplayBackground : ParallaxBackground
 
   public override void _Process(float delta)
   {
-    back1.Offset = new Vector2(back1.Offset.x - 1, -100);
-    back2.Offset = new Vector2(back2.Offset.x - 1, -100);
-    fore1.Offset = new Vector2(fore1.Offset.x - 2, -100);
-    fore2.Offset = new Vector2(fore2.Offset.x - 2, -100);
+    back1.Offset = new Vector2(back1.Offset.x - 0.5f, -100);
+    back2.Offset = new Vector2(back2.Offset.x - 0.5f, -100);
+    fore1.Offset = new Vector2(fore1.Offset.x - 1, -100);
+    fore2.Offset = new Vector2(fore2.Offset.x - 1, -100);
 
     if (back1.Offset.x == -1280)
       back1.Offset = new Vector2(1280, -100);

@@ -11,12 +11,10 @@ public class Platform : KinematicBody2D
     velocity.x = -speed;
     MoveAndCollide(velocity * delta);
 
-
     if (GlobalPosition.x <= -340)
     {
       GlobalPosition = new Vector2(2260, (float)GD.RandRange(100, 900));
-      Scale = new Vector2((float)random.NextDouble() + 0.5f, 1);
+      Scale = new Vector2((float)GD.RandRange(0.7, 1), 1);
     }
-
   }
 }

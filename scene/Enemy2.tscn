@@ -73,7 +73,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.0052, 32.5621 )
+extents = Vector2( 10.6271, 34.249 )
 
 [node name="Enemy2" type="KinematicBody2D"]
 script = ExtResource( 48 )
@@ -87,10 +87,10 @@ frames = SubResource( 1 )
 animation = "Hurt"
 
 [node name="HpBar" parent="." instance=ExtResource( 1 )]
-position = Vector2( -22.608, -68.0046 )
+position = Vector2( -26.6511, -79.1825 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( -0.814514, -17.8165 )
+position = Vector2( 0.136795, -19.9569 )
 shape = SubResource( 2 )
 
 [node name="Gun" parent="." instance=ExtResource( 2 )]

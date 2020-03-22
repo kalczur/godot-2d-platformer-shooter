@@ -11,32 +11,35 @@
 [sub_resource type="Environment" id=1]
 background_mode = 4
 ambient_light_energy = 8.88
-dof_blur_far_distance = 0.5
-dof_blur_far_transition = 0.91
+fog_sun_amount = 0.14
+dof_blur_far_distance = 0.9
+dof_blur_far_transition = 0.2
+dof_blur_far_amount = 0.05
 dof_blur_far_quality = 0
 dof_blur_near_distance = 0.02
 dof_blur_near_amount = 0.05
 glow_enabled = true
-glow_strength = 1.25
+glow_strength = 0.82
+glow_bloom = 1.0
 glow_blend_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id=2]
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 1639.34, 38.1679 )
+extents = Vector2( 1695.34, 38.1679 )
 
-[sub_resource type="CanvasItemMaterial" id=6]
+[sub_resource type="CanvasItemMaterial" id=4]
 blend_mode = 1
 
-[sub_resource type="DynamicFontData" id=7]
+[sub_resource type="DynamicFontData" id=5]
 font_path = "res://font/Amatic-Bold.ttf"
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=6]
 size = 80
 use_filter = true
 extra_spacing_char = 5
-font_data = SubResource( 7 )
+font_data = SubResource( 5 )
 
 [node name="Gameplay" type="Node2D"]
 script = ExtResource( 1 )
@@ -108,17 +111,21 @@ wait_time = 10.0
 autostart = true
 
 [node name="Score" type="Label" parent="."]
-material = SubResource( 6 )
+material = SubResource( 4 )
 margin_left = 25.0
 margin_top = 10.0
 margin_right = 370.0
 margin_bottom = 54.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 6 )
 text = "0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AddPointTimer" type="Timer" parent="."]
+autostart = true
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
 [connection signal="timeout" from="FirstAidKitSpawnTimer" to="." method="_on_FirstAidKitSpawnTimer_timeout"]
 [connection signal="timeout" from="C4SpawnTimer" to="." method="_on_C4SpawnTimer_timeout"]
+[connection signal="timeout" from="AddPointTimer" to="." method="_on_AddPointTimer_timeout"]

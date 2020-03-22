@@ -1,71 +1,102 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://textures/FirstAidKit/Idle/firstAidKit.png" type="Texture" id=1]
 [ext_resource path="res://script/Item.cs" type="Script" id=2]
 [ext_resource path="res://textures/FirstAidKit/Idle/firstAidKit_2.png" type="Texture" id=3]
-[ext_resource path="res://textures/FirstAidKit/Remove/0029.png" type="Texture" id=4]
-[ext_resource path="res://textures/FirstAidKit/Remove/0006.png" type="Texture" id=5]
-[ext_resource path="res://textures/FirstAidKit/Remove/0002.png" type="Texture" id=6]
-[ext_resource path="res://textures/FirstAidKit/Remove/0005.png" type="Texture" id=7]
-[ext_resource path="res://textures/FirstAidKit/Remove/0032.png" type="Texture" id=8]
-[ext_resource path="res://textures/FirstAidKit/Remove/0017.png" type="Texture" id=9]
-[ext_resource path="res://textures/FirstAidKit/Remove/0009.png" type="Texture" id=10]
-[ext_resource path="res://textures/FirstAidKit/Remove/0019.png" type="Texture" id=11]
-[ext_resource path="res://textures/FirstAidKit/Remove/0024.png" type="Texture" id=12]
-[ext_resource path="res://textures/FirstAidKit/Remove/0025.png" type="Texture" id=13]
-[ext_resource path="res://textures/FirstAidKit/Remove/0022.png" type="Texture" id=14]
-[ext_resource path="res://textures/FirstAidKit/Remove/0021.png" type="Texture" id=15]
-[ext_resource path="res://textures/FirstAidKit/Remove/0031.png" type="Texture" id=16]
-[ext_resource path="res://textures/FirstAidKit/Remove/0001.png" type="Texture" id=17]
-[ext_resource path="res://textures/FirstAidKit/Remove/0007.png" type="Texture" id=18]
-[ext_resource path="res://textures/FirstAidKit/Remove/0018.png" type="Texture" id=19]
-[ext_resource path="res://textures/FirstAidKit/Remove/0008.png" type="Texture" id=20]
-[ext_resource path="res://textures/FirstAidKit/Remove/0013.png" type="Texture" id=21]
-[ext_resource path="res://textures/FirstAidKit/Remove/0026.png" type="Texture" id=22]
-[ext_resource path="res://textures/FirstAidKit/Remove/0027.png" type="Texture" id=23]
-[ext_resource path="res://textures/FirstAidKit/Remove/0028.png" type="Texture" id=24]
-[ext_resource path="res://textures/FirstAidKit/Remove/0030.png" type="Texture" id=25]
-[ext_resource path="res://textures/FirstAidKit/Remove/0015.png" type="Texture" id=26]
-[ext_resource path="res://textures/FirstAidKit/Remove/0023.png" type="Texture" id=27]
-[ext_resource path="res://textures/FirstAidKit/Remove/0014.png" type="Texture" id=28]
-[ext_resource path="res://textures/FirstAidKit/Remove/0004.png" type="Texture" id=29]
-[ext_resource path="res://textures/FirstAidKit/Remove/0011.png" type="Texture" id=30]
-[ext_resource path="res://textures/FirstAidKit/Remove/0016.png" type="Texture" id=31]
-[ext_resource path="res://textures/FirstAidKit/Remove/0020.png" type="Texture" id=32]
-[ext_resource path="res://textures/FirstAidKit/Remove/0003.png" type="Texture" id=33]
-[ext_resource path="res://textures/FirstAidKit/Remove/0012.png" type="Texture" id=34]
-[ext_resource path="res://textures/FirstAidKit/Remove/0010.png" type="Texture" id=35]
-[ext_resource path="res://textures/FirstAidKit/Remove/0036.png" type="Texture" id=36]
-[ext_resource path="res://textures/FirstAidKit/Remove/0043.png" type="Texture" id=37]
-[ext_resource path="res://textures/FirstAidKit/Remove/0049.png" type="Texture" id=38]
-[ext_resource path="res://textures/FirstAidKit/Remove/0042.png" type="Texture" id=39]
-[ext_resource path="res://textures/FirstAidKit/Remove/0037.png" type="Texture" id=40]
-[ext_resource path="res://textures/FirstAidKit/Remove/0034.png" type="Texture" id=41]
-[ext_resource path="res://textures/FirstAidKit/Remove/0048.png" type="Texture" id=42]
-[ext_resource path="res://textures/FirstAidKit/Remove/0050.png" type="Texture" id=43]
-[ext_resource path="res://textures/FirstAidKit/Remove/0038.png" type="Texture" id=44]
-[ext_resource path="res://textures/FirstAidKit/Remove/0033.png" type="Texture" id=45]
-[ext_resource path="res://textures/FirstAidKit/Remove/0039.png" type="Texture" id=46]
-[ext_resource path="res://textures/FirstAidKit/Remove/0046.png" type="Texture" id=47]
-[ext_resource path="res://textures/FirstAidKit/Remove/0044.png" type="Texture" id=48]
-[ext_resource path="res://textures/FirstAidKit/Remove/0045.png" type="Texture" id=49]
-[ext_resource path="res://textures/FirstAidKit/Remove/0035.png" type="Texture" id=50]
-[ext_resource path="res://textures/FirstAidKit/Remove/0041.png" type="Texture" id=51]
-[ext_resource path="res://textures/FirstAidKit/Remove/0047.png" type="Texture" id=52]
-[ext_resource path="res://textures/FirstAidKit/Remove/0040.png" type="Texture" id=53]
+[ext_resource path="res://textures/FirstAidKit/Remove/explosion.png" type="Texture" id=4]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 14.9356, 12.4466 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 15.0412, 12.36 )
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="AtlasTexture" id=3]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 256, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 512, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 768, 0, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=7]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 256, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 256, 256, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 512, 256, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 768, 256, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=11]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 512, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=12]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 256, 512, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=13]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 512, 512, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=14]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 768, 512, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=15]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 0, 768, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=16]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 256, 768, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=17]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 512, 768, 256, 256 )
+
+[sub_resource type="AtlasTexture" id=18]
+flags = 4
+atlas = ExtResource( 4 )
+region = Rect2( 768, 768, 256, 256 )
+
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ ExtResource( 17 ), ExtResource( 6 ), ExtResource( 33 ), ExtResource( 29 ), ExtResource( 7 ), ExtResource( 5 ), ExtResource( 18 ), ExtResource( 20 ), ExtResource( 10 ), ExtResource( 35 ), ExtResource( 30 ), ExtResource( 34 ), ExtResource( 21 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 31 ), ExtResource( 9 ), ExtResource( 19 ), ExtResource( 11 ), ExtResource( 32 ), ExtResource( 15 ), ExtResource( 14 ), ExtResource( 27 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 4 ), ExtResource( 25 ), ExtResource( 16 ), ExtResource( 8 ), ExtResource( 45 ), ExtResource( 41 ), ExtResource( 50 ), ExtResource( 36 ), ExtResource( 40 ), ExtResource( 44 ), ExtResource( 46 ), ExtResource( 53 ), ExtResource( 51 ), ExtResource( 39 ), ExtResource( 37 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 47 ), ExtResource( 52 ), ExtResource( 42 ), ExtResource( 38 ), ExtResource( 43 ) ],
+"frames": [ SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ) ],
 "loop": false,
 "name": "Remove",
-"speed": 60.0
+"speed": 30.0
 }, {
 "frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
 "loop": true,
@@ -79,20 +110,20 @@ script = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 visible = false
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-frames = SubResource( 1 )
+z_index = 1
+frames = SubResource( 19 )
 animation = "Idle"
-frame = 1
 playing = true
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

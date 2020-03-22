@@ -88,15 +88,15 @@ animations = [ {
 "name": "Jump Start",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 46 ) ],
-"loop": true,
-"name": "Hurt",
-"speed": 30.0
-}, {
 "frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 61 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 63 ) ],
 "loop": false,
 "name": "Dying",
 "speed": 20.0
+}, {
+"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "Hurt",
+"speed": 30.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 36 ), ExtResource( 15 ), ExtResource( 35 ), ExtResource( 24 ), ExtResource( 32 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 29 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 19 ) ],
 "loop": true,
@@ -105,7 +105,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.0177, 31.2199 )
+extents = Vector2( 10.8528, 35.7744 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
@@ -113,15 +113,13 @@ hp = 200.0
 speed = 400
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -30 )
+position = Vector2( 0, -28 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 1.52588e-05, -16.9124 )
+position = Vector2( 0, -19.279 )
 shape = SubResource( 2 )
-one_way_collision = true
 one_way_collision_margin = 0.0
 
 [node name="Timer" type="Timer" parent="."]
