@@ -123,7 +123,6 @@ public class Player : Character
         }
       }
 
-
       lookVector = GetGlobalMousePosition() - GlobalPosition;
       gunNode.GlobalRotation = Mathf.Atan2(lookVector.y, lookVector.x);
       scale.y = lookVector.x > 0 ? 1 : -1;

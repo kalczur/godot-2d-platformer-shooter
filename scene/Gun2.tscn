@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=2]
 
-[ext_resource path="res://textures/gun_2.png" type="Texture" id=1]
+[ext_resource path="res://textures/Gun/gun2.png" type="Texture" id=1]
 [ext_resource path="res://script/Gun.cs" type="Script" id=2]
 [ext_resource path="res://textures/Gun/Fire/explosion.png" type="Texture" id=3]
 
@@ -98,7 +98,7 @@ damage = 25.0
 bulletSpeed = 400
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 20, 3 )
+position = Vector2( 16.753, 7 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 1 )
 

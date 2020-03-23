@@ -1,7 +1,7 @@
 [gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://script/Gun.cs" type="Script" id=1]
-[ext_resource path="res://textures/gun_3.png" type="Texture" id=2]
+[ext_resource path="res://textures/Gun/gun3.png" type="Texture" id=2]
 [ext_resource path="res://textures/Gun/Fire/explosion.png" type="Texture" id=3]
 
 [sub_resource type="AtlasTexture" id=1]
@@ -97,7 +97,7 @@ script = ExtResource( 1 )
 damage = 10.0
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 13, 3 )
+position = Vector2( 13.789, 7.5 )
 scale = Vector2( -1, 1 )
 texture = ExtResource( 2 )
 

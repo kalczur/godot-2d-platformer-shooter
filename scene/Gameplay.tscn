@@ -100,11 +100,9 @@ shape = SubResource( 3 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 4.0
-autostart = true
 
 [node name="FirstAidKitSpawnTimer" type="Timer" parent="."]
 wait_time = 8.0
-autostart = true
 
 [node name="C4SpawnTimer" type="Timer" parent="."]
 wait_time = 10.0

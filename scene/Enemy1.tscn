@@ -85,6 +85,11 @@ animations = [ {
 "name": "Jump Loop",
 "speed": 20.0
 }, {
+"frames": [ ExtResource( 43 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 44 ), ExtResource( 34 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 45 ) ],
+"loop": true,
+"name": "Runing",
+"speed": 20.0
+}, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 23 ) ],
 "loop": false,
 "name": "Jump Start",
@@ -98,11 +103,6 @@ animations = [ {
 "frames": [ ExtResource( 56 ), ExtResource( 52 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 51 ) ],
 "loop": false,
 "name": "Hurt",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 43 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 44 ), ExtResource( 34 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 45 ) ],
-"loop": true,
-"name": "Runing",
 "speed": 20.0
 } ]
 

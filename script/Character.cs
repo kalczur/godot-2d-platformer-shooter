@@ -21,6 +21,7 @@ public class Character : KinematicBody2D
   protected PackedScene gun2;
   protected PackedScene gun3;
   protected Gun gunNode = new Gun();
+  //protected Vector2 gunSpritePosition;
   protected AnimatedSprite charcterAnimatedSprite;
   protected Label score;
   public virtual void Hit(float damgae) { }
