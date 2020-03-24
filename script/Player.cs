@@ -96,7 +96,6 @@ public class Player : Character
       if (Input.IsActionPressed("shot") && gunNode.ready)
       {
         charcterAnimatedSprite.FlipH = lookVector.x < 0 ? true : false;
-        //velocity = lookVector.Normalized() * -speed * 2;
         gunNode.shot(lookVector, gunNode.damage);
       }
 
@@ -112,6 +111,7 @@ public class Player : Character
       }
       else
       {
+        charcterAnimatedSprite.Play("Jump Loop");
         if (onGround)
         {
           onGround = false;
@@ -135,23 +135,20 @@ public class Player : Character
       MoveAndCollide(velocity * delta);
     }
   }
-  public override void Hit(float damgae)
+  public override void UpdateHp(float damgae)
   {
-    hp -= damgae;
-    UpdateHp();
-    screenShakePower = damgae < 40 ? 1 : 2;
-    charcterAnimatedSprite.Play("Hurt");
-    GetParent().GetNode<ScreenShake>("ScreenShake").ScreenShakeStart(screenShakePower, screenShakePower * 10, screenShakePower * 100);
-    if (hp < 1)
-      Kill();
-  }
-  public void Heal(float healHp)
-  {
-    hp = hp + healHp > baseHp ? baseHp : hp + healHp;
-    UpdateHp();
-  }
-  private void UpdateHp()
-  {
+    if (damgae > 0)
+      hp = hp + damgae > baseHp ? baseHp : hp + damgae;
+    else
+    {
+      hp += damgae;
+      charcterAnimatedSprite.Play("Hurt");
+      screenShakePower = damgae < -40 ? 2 : 1;
+      GetParent().GetNode<ScreenShake>("ScreenShake").ScreenShakeStart(screenShakePower, screenShakePower * 10, screenShakePower * 100);
+
+      if (hp < 1)
+        Kill();
+    }
     hpBar.SetSize(new Vector2((hp / baseHp) * baseSizeHpBar.x, baseSizeHpBar.y));
   }
   public void _on_Timer_timeout()

@@ -4,7 +4,7 @@ using System;
 public class ScreenShake : Node2D
 {
   public int currentShakePriority = 0;
-  private Tween tween = new Tween();
+  private Tween tween;
   public override void _Ready()
   {
     tween = GetNode("Tween") as Tween;

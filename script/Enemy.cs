@@ -55,9 +55,9 @@ public class Enemy : Character
       MoveAndCollide(velocity * delta);
     }
   }
-  public override void Hit(float damgae)
+  public override void UpdateHp(float damgae)
   {
-    hp -= damgae;
+    hp += damgae;
     hpBar.SetSize(new Vector2((hp / baseHp) * baseSizeHpBar.x, baseSizeHpBar.y));
     charcterAnimatedSprite.Play("Hurt");
     if (hp < 1)

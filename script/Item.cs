@@ -15,7 +15,7 @@ public class Item : RigidBody2D
     if (body is Player)
     {
       Player player = body as Player;
-      player.Heal(hpValue);
+      player.UpdateHp(hpValue);
       Remove();
     }
     else if (body is Lava)

@@ -9,13 +9,32 @@ public class Gameplay : Node2D
   PackedScene firstAidKit = GD.Load("res://scene/FirstAidKit.tscn") as PackedScene;
   PackedScene c4 = GD.Load("res://scene/C4.tscn") as PackedScene;
   Random random = new Random();
+  Player playerNode;
+  float zoomScale = 0.00005f;
+  float playerDistanceFromCentre;
+  Camera2D camera;
   Label score;
   Timer enemySpawnTimer;
+  bool nwm = false;
 
   public override void _Ready()
   {
+    camera = GetNode("GameplayCamera") as Camera2D;
+    playerNode = GetNode("Player") as Player;
     score = GetNode("Score") as Label;
     enemySpawnTimer = GetNode("EnemySpawnTimer") as Timer;
+  }
+  public override void _Process(float delta)
+  {
+    playerDistanceFromCentre = (float)Math.Sqrt((float)Math.Pow((playerNode.GlobalPosition.x - 960), 2) + Math.Pow(playerNode.GlobalPosition.y - 540, 2));
+
+
+    var zoom = (0.95f + zoomScale * playerDistanceFromCentre) > 1 ? 1 : (0.95f + zoomScale * playerDistanceFromCentre);
+
+    camera.Zoom = new Vector2(zoom, zoom);
+
+    GD.Print(zoom);
+    GD.Print("--------------------");
   }
 
   private void Spawn(PackedScene packedScene)

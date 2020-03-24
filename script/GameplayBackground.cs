@@ -7,8 +7,6 @@ public class GameplayBackground : ParallaxBackground
   private Sprite back2;
   private Sprite fore1;
   private Sprite fore2;
-
-  private Vector2 position;
   public override void _Ready()
   {
     back1 = GetNode("Back1/Sprite") as Sprite;

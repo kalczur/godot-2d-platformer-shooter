@@ -47,7 +47,7 @@ script = ExtResource( 1 )
 [node name="GameplayBackground" parent="." instance=ExtResource( 6 )]
 
 [node name="PlayerHpBar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1682.96, 39.3804 )
+position = Vector2( 1575.59, 110.958 )
 
 [node name="Platform" parent="." instance=ExtResource( 5 )]
 position = Vector2( 1351.35, 907.041 )
@@ -65,7 +65,7 @@ position = Vector2( 1073.7, 298.558 )
 position = Vector2( 1799.72, 683.651 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1413.54, 712.343 )
+position = Vector2( 1372.86, 596.61 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -76,7 +76,7 @@ script = ExtResource( 4 )
 [node name="Tween" type="Tween" parent="ScreenShake"]
 
 [node name="GameplayCamera" type="Camera2D" parent="."]
-anchor_mode = 0
+position = Vector2( 960, 540 )
 current = true
 
 [node name="Lava" type="Area2D" parent="."]
@@ -87,8 +87,8 @@ script = ExtResource( 7 )
 material = SubResource( 2 )
 margin_left = -968.0
 margin_top = -7.0
-margin_right = 973.0
-margin_bottom = 86.0
+margin_right = 962.0
+margin_bottom = 32.0
 color = Color( 1, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -100,9 +100,11 @@ shape = SubResource( 3 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 4.0
+autostart = true
 
 [node name="FirstAidKitSpawnTimer" type="Timer" parent="."]
 wait_time = 8.0
+autostart = true
 
 [node name="C4SpawnTimer" type="Timer" parent="."]
 wait_time = 10.0
@@ -110,10 +112,10 @@ autostart = true
 
 [node name="Score" type="Label" parent="."]
 material = SubResource( 4 )
-margin_left = 25.0
-margin_top = 10.0
-margin_right = 370.0
-margin_bottom = 54.0
+margin_left = 106.338
+margin_top = 84.8313
+margin_right = 451.338
+margin_bottom = 171.831
 custom_fonts/font = SubResource( 6 )
 text = "0"
 __meta__ = {

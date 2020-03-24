@@ -26,7 +26,7 @@ public class Bullet : Area2D
     if (body is Character)
     {
       Character character = body as Character;
-      character.Hit(damage);
+      character.UpdateHp(damage);
     }
     QueueFree();
   }
