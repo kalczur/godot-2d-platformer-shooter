@@ -153,6 +153,6 @@ public class Player : Character
   }
   public void _on_Timer_timeout()
   {
-    GetTree().ChangeScene("res://scene/TitleScreen.tscn");
+    GetTree().ChangeScene("res://scene/DeadScreen.tscn");
   }
 }

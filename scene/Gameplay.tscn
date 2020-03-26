@@ -85,9 +85,9 @@ script = ExtResource( 7 )
 
 [node name="ColorRect" type="ColorRect" parent="Lava"]
 material = SubResource( 2 )
-margin_left = -968.0
+margin_left = -960.0
 margin_top = -7.0
-margin_right = 962.0
+margin_right = 967.0
 margin_bottom = 32.0
 color = Color( 1, 0, 0, 1 )
 __meta__ = {

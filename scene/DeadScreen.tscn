@@ -1,0 +1,100 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://script/DeadScreen.cs" type="Script" id=1]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://font/Amatic-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 120
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=3]
+font_path = "res://font/AmaticSC-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=4]
+size = 120
+font_data = SubResource( 3 )
+
+[sub_resource type="DynamicFontData" id=5]
+font_path = "res://font/Amatic-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=6]
+size = 80
+font_data = SubResource( 5 )
+
+[node name="DeadScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 675.0
+margin_top = 21.0
+margin_right = 1242.0
+margin_bottom = 151.0
+custom_fonts/font = SubResource( 2 )
+text = "SCORE"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Score" type="Label" parent="."]
+margin_left = 679.426
+margin_top = 184.763
+margin_right = 1246.43
+margin_bottom = 314.763
+custom_fonts/font = SubResource( 2 )
+text = "159264873"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="."]
+margin_left = 657.756
+margin_top = 375.922
+margin_right = 1313.75
+margin_bottom = 520.922
+custom_fonts/font = SubResource( 4 )
+text = "NAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Save" type="Button" parent="."]
+margin_left = 575.956
+margin_top = 587.74
+margin_right = 1375.96
+margin_bottom = 680.74
+custom_fonts/font = SubResource( 6 )
+text = "Save"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Retry" type="Button" parent="."]
+margin_left = 62.5383
+margin_top = 901.816
+margin_right = 562.538
+margin_bottom = 994.816
+custom_fonts/font = SubResource( 6 )
+text = "Retry"
+
+[node name="Exit" type="Button" parent="."]
+margin_left = 1372.64
+margin_top = 919.52
+margin_right = 1872.64
+margin_bottom = 1012.52
+custom_fonts/font = SubResource( 6 )
+text = "Exit"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Retry" to="." method="_on_Retry_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_Exit_pressed"]
