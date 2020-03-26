@@ -8,8 +8,14 @@ Gun change: 1, 2, 3
 ```
 ### Guns:
 ```
-1: dmg: 20hp, reload: 0.5s
-2: dmg: 40hp, reload: 1s
+1: dmg: 50hp, reload: 1.0s
+2: dmg: 30hp, reload: 0.7s
+3: dmg: 10hp, reload: 0.2s
+```
+### Items:
+```
+- bomb: -50hp, spawn: 8s
+- first aid kit: +50hp, spawn: 10s
 ```
 
 ![Game screen. Version 0.01](https://raw.githubusercontent.com/kalczur/godot-2d-platformer-shooter/master/GameScreenv02.png)
