@@ -23,7 +23,7 @@ public class Enemy : Character
     {
       lookVector = GetTree().Root.GetNode<KinematicBody2D>("Gameplay/Player").GlobalPosition - GlobalPosition;
 
-      if (Math.Abs(lookVector.x) > 80)
+      if (Math.Abs(lookVector.x) > 150)
         velocity.x = lookVector.x > 0 ? speed : -speed;
       else
         velocity.x = lookVector.x > 0 ? -speed : speed;
@@ -33,12 +33,8 @@ public class Enemy : Character
       else
         charcterAnimatedSprite.Play("Jump Loop");
 
-      MoveAndSlide(velocity, floor);
       velocity.y = gravity * 10;
-
-      if (IsOnWall())
-        velocity.y -= gravity * 20;
-
+      MoveAndSlide(velocity, floor);
       gunNode.GlobalRotation = Mathf.Atan2(lookVector.y, lookVector.x);
 
       scale.y = lookVector.x > 0 ? 1 : -1;

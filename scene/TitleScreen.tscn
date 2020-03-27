@@ -1,6 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://script/TitleScreen.cs" type="Script" id=1]
+[ext_resource path="res://scene/Scoreboard.tscn" type="PackedScene" id=2]
+[ext_resource path="res://audio/TremLoadingloopl.ogg" type="AudioStream" id=3]
+[ext_resource path="res://script/TitleScreenCamera.cs" type="Script" id=4]
+[ext_resource path="res://scene/Options.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://font/AmaticSC-Regular.ttf"
@@ -112,15 +116,35 @@ custom_fonts/font = SubResource( 4 )
 text = "Exit"
 flat = true
 
+[node name="Scoreboard" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1920, 0 )
+
+[node name="Options" parent="." instance=ExtResource( 5 )]
+position = Vector2( -1920, 0 )
+
 [node name="Author" type="Label" parent="."]
-margin_left = 1694.1
-margin_top = 1023.05
-margin_right = 1904.1
-margin_bottom = 1056.05
+margin_left = 1662.1
+margin_top = 1019.05
+margin_right = 1890.1
+margin_bottom = 1052.05
 custom_fonts/font = SubResource( 6 )
-text = "Author:     Damian Olszewski"
+text = "Author:        Damian    Olszewski"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -50.0
+pitch_scale = 3.0
+autoplay = true
+
+[node name="TitleScreenCamera" type="Camera2D" parent="."]
+anchor_mode = 0
+current = true
+smoothing_enabled = true
+script = ExtResource( 4 )
 [connection signal="pressed" from="Menu/Buttons/NewGame" to="." method="_on_NewGame_pressed"]
+[connection signal="pressed" from="Menu/Buttons/Options" to="." method="_on_Options_pressed"]
+[connection signal="pressed" from="Menu/Buttons/Scoreboard" to="." method="_on_Scoreboard_pressed"]
 [connection signal="pressed" from="Menu/Buttons/Exit" to="." method="_on_Exit_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://script/Gameplay.cs" type="Script" id=1]
 [ext_resource path="res://scene/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://scene/Platform.tscn" type="PackedScene" id=5]
 [ext_resource path="res://scene/GameplayBackground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://script/Lava.cs" type="Script" id=7]
+[ext_resource path="res://audio/Cyberpunk Moonlight Sonata.ogg" type="AudioStream" id=8]
 
 [sub_resource type="Environment" id=1]
 background_mode = 4
@@ -27,7 +28,7 @@ glow_blend_mode = 1
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 1695.34, 38.1679 )
+extents = Vector2( 2609.46, 18.48 )
 
 [sub_resource type="CanvasItemMaterial" id=4]
 blend_mode = 1
@@ -46,26 +47,23 @@ script = ExtResource( 1 )
 
 [node name="GameplayBackground" parent="." instance=ExtResource( 6 )]
 
-[node name="PlayerHpBar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1575.59, 110.958 )
-
 [node name="Platform" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1351.35, 907.041 )
+position = Vector2( 947.254, 545.214 )
 
 [node name="Platform2" parent="." instance=ExtResource( 5 )]
-position = Vector2( 462.014, 415.463 )
+position = Vector2( -133.141, 354.566 )
 
 [node name="Platform3" parent="." instance=ExtResource( 5 )]
-position = Vector2( -73.0987, 899.756 )
+position = Vector2( 372.162, 867.298 )
 
 [node name="Platform4" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1073.7, 298.558 )
+position = Vector2( 2065.57, 572.971 )
 
 [node name="Platform5" parent="." instance=ExtResource( 5 )]
-position = Vector2( 1799.72, 683.651 )
+position = Vector2( 1462.46, 270.703 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 1372.86, 596.61 )
+position = Vector2( 943.536, 233.676 )
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 1 )
@@ -86,16 +84,16 @@ script = ExtResource( 7 )
 [node name="ColorRect" type="ColorRect" parent="Lava"]
 material = SubResource( 2 )
 margin_left = -960.0
-margin_top = -7.0
+margin_top = -29.0
 margin_right = 967.0
-margin_bottom = 32.0
+margin_bottom = 169.0
 color = Color( 1, 0, 0, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava"]
-position = Vector2( -0.431946, 42.1598 )
+position = Vector2( -0.431946, 15.1864 )
 shape = SubResource( 3 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
@@ -110,6 +108,9 @@ autostart = true
 wait_time = 10.0
 autostart = true
 
+[node name="AddPointTimer" type="Timer" parent="."]
+autostart = true
+
 [node name="Score" type="Label" parent="."]
 material = SubResource( 4 )
 margin_left = 106.338
@@ -122,8 +123,15 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AddPointTimer" type="Timer" parent="."]
-autostart = true
+[node name="PlayerHpBar" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1575.59, 110.958 )
+z_index = 2
+
+[node name="MusicBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -50.0
+pitch_scale = 1.01
+autoplay = true
 [connection signal="body_entered" from="Lava" to="Lava" method="_on_Lava_body_entered"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_EnemySpawnTimer_timeout"]
 [connection signal="timeout" from="FirstAidKitSpawnTimer" to="." method="_on_FirstAidKitSpawnTimer_timeout"]

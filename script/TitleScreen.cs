@@ -11,8 +11,14 @@ public class TitleScreen : Control
   {
     GetTree().ChangeScene("res://scene/Gameplay.tscn");
   }
-
-
+  public void _on_Options_pressed()
+  {
+    GetNode<Camera2D>("TitleScreenCamera").Offset = new Vector2(-1920, 0);
+  }
+  public void _on_Scoreboard_pressed()
+  {
+    GetNode<Camera2D>("TitleScreenCamera").Offset = new Vector2(1920, 0);
+  }
   public void _on_Exit_pressed()
   {
     GetTree().Quit();

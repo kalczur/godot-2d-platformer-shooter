@@ -60,13 +60,17 @@
     <Compile Include="script\Enemy.cs" />
     <Compile Include="script\Gameplay.cs" />
     <Compile Include="script\GameplayBackground.cs" />
+    <Compile Include="script\Global.cs" />
     <Compile Include="script\Gun.cs" />
     <Compile Include="script\Item.cs" />
     <Compile Include="script\Lava.cs" />
+    <Compile Include="script\Options.cs" />
     <Compile Include="script\Platform.cs" />
     <Compile Include="script\Player.cs" />
+    <Compile Include="script\Scoreboard.cs" />
     <Compile Include="script\ScreenShake.cs" />
     <Compile Include="script\TitleScreen.cs" />
+    <Compile Include="script\TitleScreenCamera.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

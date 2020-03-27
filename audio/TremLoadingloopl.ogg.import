@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/TremLoadingloopl.ogg-93c807435348e9c64c0f2fffd83b4677.oggstr"
+
+[deps]
+
+source_file="res://audio/TremLoadingloopl.ogg"
+dest_files=[ "res://.import/TremLoadingloopl.ogg-93c807435348e9c64c0f2fffd83b4677.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
