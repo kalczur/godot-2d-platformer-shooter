@@ -23,20 +23,20 @@ public class Character : KinematicBody2D
   protected Gun gunNode;
   protected AnimatedSprite charcterAnimatedSprite;
   protected Label score;
+  protected AudioStreamPlayer dieSound;
   public virtual void UpdateHp(float damgae) { }
 
   public void _on_AnimatedSprite_animation_finished()
   {
     if (charcterAnimatedSprite.Animation == "Dying")
-      Kill();
+      GetNode<Timer>("Timer").Start();
   }
   public void Kill()
   {
     isDead = true;
     velocity.y = gravity;
     charcterAnimatedSprite.Play("Dying");
+    dieSound.Play();
     GetNode<CollisionShape2D>("CollisionShape2D").Shape = null;
-
-    GetNode<Timer>("Timer").Start();
   }
 }

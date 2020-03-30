@@ -60,7 +60,6 @@
     <Compile Include="script\Enemy.cs" />
     <Compile Include="script\Gameplay.cs" />
     <Compile Include="script\GameplayBackground.cs" />
-    <Compile Include="script\GlobalOptions.cs" />
     <Compile Include="script\Gun.cs" />
     <Compile Include="script\Item.cs" />
     <Compile Include="script\Lava.cs" />

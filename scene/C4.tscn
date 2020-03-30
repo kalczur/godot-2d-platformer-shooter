@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://script/Item.cs" type="Script" id=1]
 [ext_resource path="res://textures/C4/Idle/0030.png" type="Texture" id=2]
@@ -62,6 +62,7 @@
 [ext_resource path="res://textures/C4/Idle/0001.png" type="Texture" id=60]
 [ext_resource path="res://textures/C4/Idle/0012.png" type="Texture" id=61]
 [ext_resource path="res://textures/C4/Idle/0004.png" type="Texture" id=62]
+[ext_resource path="res://audio/boom.ogg" type="AudioStream" id=63]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 10.7152
@@ -165,7 +166,7 @@ animations = [ {
 [node name="C4" type="RigidBody2D"]
 gravity_scale = 10.0
 script = ExtResource( 1 )
-hpValue = -50.0
+hpValue = -40.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.17482, 0.874119 )
@@ -186,8 +187,12 @@ rotation = -0.785398
 z_index = 1
 frames = SubResource( 19 )
 animation = "Idle"
-frame = 37
+frame = 6
 playing = true
+
+[node name="UseSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 63 )
+volume_db = -35.0
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]

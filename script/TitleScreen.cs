@@ -3,10 +3,6 @@ using System;
 
 public class TitleScreen : Control
 {
-  public override void _Ready()
-  {
-
-  }
   public void _on_NewGame_pressed()
   {
     GetTree().ChangeScene("res://scene/Gameplay.tscn");

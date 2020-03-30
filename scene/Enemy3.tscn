@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_003.png" type="Texture" id=1]
 [ext_resource path="res://textures/Enemy3/Running/0_Golem_Running_004.png" type="Texture" id=2]
@@ -48,12 +48,13 @@
 [ext_resource path="res://scene/HpBar.tscn" type="PackedScene" id=46]
 [ext_resource path="res://scene/Gun2.tscn" type="PackedScene" id=47]
 [ext_resource path="res://script/Enemy.cs" type="Script" id=48]
+[ext_resource path="res://audio/enemyDying3.ogg" type="AudioStream" id=49]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 20 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 17 ), ExtResource( 34 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 23 ), ExtResource( 37 ), ExtResource( 8 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 7 ) ],
 "loop": true,
-"name": "Jump Loop",
+"name": "Runing",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 32 ), ExtResource( 15 ), ExtResource( 33 ), ExtResource( 19 ), ExtResource( 16 ), ExtResource( 9 ), ExtResource( 18 ), ExtResource( 21 ), ExtResource( 45 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 39 ), ExtResource( 42 ), ExtResource( 44 ), ExtResource( 43 ) ],
@@ -66,9 +67,9 @@ animations = [ {
 "name": "Hurt",
 "speed": 20.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 6 ), ExtResource( 23 ), ExtResource( 37 ), ExtResource( 8 ), ExtResource( 38 ), ExtResource( 35 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 20 ), ExtResource( 28 ), ExtResource( 11 ), ExtResource( 27 ), ExtResource( 17 ), ExtResource( 34 ) ],
 "loop": true,
-"name": "Runing",
+"name": "Jump Loop",
 "speed": 20.0
 } ]
 
@@ -97,4 +98,8 @@ shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 49 )
+volume_db = -40.0
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

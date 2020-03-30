@@ -10,16 +10,20 @@ public class Gun : Node2D
   protected PackedScene bulletScene = GD.Load<PackedScene>("res://scene/Bullet.tscn");
   protected Bullet bulletNode = new Bullet();
 
+  AudioStreamPlayer shootSound;
+
   AnimatedSprite animatedSprite = new AnimatedSprite();
   public bool ready;
 
   public override void _Ready()
   {
     animatedSprite = GetNode("FireAnimatedSprite") as AnimatedSprite;
+    shootSound = GetNode("ShootSound") as AudioStreamPlayer;
   }
   public virtual void shot(Vector2 where, float damage)
   {
     animatedSprite.Play("Fire");
+    shootSound.Play();
     bulletNode = (Bullet)bulletScene.Instance();
     bulletNode.damage = damage;
     bulletNode.speed = bulletSpeed;

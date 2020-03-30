@@ -8,6 +8,10 @@ public class Player : Character
   int jupmCount = 3;
   int currentGun = 2;
   int screenShakePower;
+  bool canPlayStepSound = true;
+  AudioStreamPlayer jumpSound;
+  AudioStreamPlayer hitSound;
+  AudioStreamPlayer stepSound;
   public override void _Ready()
   {
     baseHp = hp;
@@ -26,6 +30,10 @@ public class Player : Character
     charcterAnimatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
     gunSprite = gunNode.GetNode<Sprite>("Sprite");
     baseSizeHpBar = hpBar.RectSize;
+    jumpSound = GetNode("JumpSound") as AudioStreamPlayer;
+    stepSound = GetNode("StepSound") as AudioStreamPlayer;
+    hitSound = GetNode("HitSound") as AudioStreamPlayer;
+    dieSound = GetNode("DieSound") as AudioStreamPlayer;
   }
   public override void _PhysicsProcess(float delta)
   {
@@ -51,6 +59,15 @@ public class Player : Character
           charcterAnimatedSprite.Play("Idle");
       }
 
+      if (velocity.x != 0 && IsOnFloor())
+      {
+        if (canPlayStepSound)
+        {
+          stepSound.Play();
+          canPlayStepSound = false;
+        }
+      }
+
       if (Input.IsActionJustPressed("jump"))
         if (jupmCount < 3)
         {
@@ -58,6 +75,7 @@ public class Player : Character
           velocity.y = jumpPower;
           onGround = false;
           charcterAnimatedSprite.Play("Jump Start");
+          jumpSound.Play();
         }
 
       if (Input.IsActionJustPressed("gun_1") && currentGun != 1)
@@ -144,6 +162,7 @@ public class Player : Character
       hp += damgae;
       charcterAnimatedSprite.Play("Hurt");
       screenShakePower = damgae < -40 ? 2 : 1;
+      hitSound.Play();
       GetParent().GetNode<ScreenShake>("ScreenShake").ScreenShakeStart(screenShakePower, screenShakePower * 10, screenShakePower * 100);
 
       if (hp < 1)
@@ -154,5 +173,9 @@ public class Player : Character
   public void _on_Timer_timeout()
   {
     GetTree().Root.GetNode<Gameplay>("Gameplay").ShowDeadScreen();
+  }
+  public void _on_StepSound_finished()
+  {
+    canPlayStepSound = true;
   }
 }

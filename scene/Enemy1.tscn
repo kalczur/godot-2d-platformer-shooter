@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=2]
+[gd_scene load_steps=76 format=2]
 
 [ext_resource path="res://script/Enemy.cs" type="Script" id=1]
 [ext_resource path="res://scene/EnemyHpBar.tscn" type="PackedScene" id=2]
@@ -72,6 +72,7 @@
 [ext_resource path="res://textures/Enemy1/Dying/0_Reaper_Man_Dying_014.png" type="Texture" id=70]
 [ext_resource path="res://textures/Enemy1/Dying/0_Reaper_Man_Dying_009.png" type="Texture" id=71]
 [ext_resource path="res://textures/Enemy1/Dying/0_Reaper_Man_Dying_006.png" type="Texture" id=72]
+[ext_resource path="res://audio/enemyDying1.ogg" type="AudioStream" id=73]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -80,20 +81,10 @@ animations = [ {
 "name": "Idle",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Jump Loop",
-"speed": 20.0
-}, {
 "frames": [ ExtResource( 43 ), ExtResource( 38 ), ExtResource( 37 ), ExtResource( 44 ), ExtResource( 34 ), ExtResource( 42 ), ExtResource( 40 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 39 ), ExtResource( 41 ), ExtResource( 45 ) ],
 "loop": true,
 "name": "Runing",
 "speed": 20.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 23 ) ],
-"loop": false,
-"name": "Jump Start",
-"speed": 30.0
 }, {
 "frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 72 ), ExtResource( 61 ), ExtResource( 58 ), ExtResource( 71 ), ExtResource( 65 ), ExtResource( 63 ), ExtResource( 69 ), ExtResource( 66 ), ExtResource( 70 ) ],
 "loop": false,
@@ -103,6 +94,16 @@ animations = [ {
 "frames": [ ExtResource( 56 ), ExtResource( 52 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 51 ) ],
 "loop": false,
 "name": "Hurt",
+"speed": 20.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 23 ) ],
+"loop": false,
+"name": "Jump Start",
+"speed": 30.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Jump Loop",
 "speed": 20.0
 } ]
 
@@ -132,5 +133,9 @@ shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 73 )
+volume_db = -50.0
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

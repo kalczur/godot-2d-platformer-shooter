@@ -16,6 +16,7 @@ public class Enemy : Character
     baseSizeHpBar = hpBar.RectSize;
     score = GetTree().Root.GetNode("Gameplay/Score") as Label;
     charcterAnimatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
+    dieSound = GetNode("DieSound") as AudioStreamPlayer;
   }
   public override void _PhysicsProcess(float delta)
   {

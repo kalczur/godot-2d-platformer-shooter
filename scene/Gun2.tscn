@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://textures/Gun/gun2.png" type="Texture" id=1]
 [ext_resource path="res://script/Gun.cs" type="Script" id=2]
 [ext_resource path="res://textures/Gun/Fire/explosion.png" type="Texture" id=3]
+[ext_resource path="res://audio/gun2.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 blend_mode = 1
@@ -122,5 +123,9 @@ position = Vector2( 56.7881, 0.00413489 )
 scale = Vector2( 0.2, 0.2 )
 frames = SubResource( 18 )
 animation = "Fire"
+
+[node name="ShootSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -55.0
 [connection signal="timeout" from="Reload" to="." method="_on_Reload_timeout"]
 [connection signal="animation_finished" from="FireAnimatedSprite" to="." method="_on_FireAnimatedSprite_animation_finished"]

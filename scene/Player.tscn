@@ -1,4 +1,4 @@
-[gd_scene load_steps=73 format=2]
+[gd_scene load_steps=77 format=2]
 
 [ext_resource path="res://textures/Player/Idle/0_Fallen_Angels_Idle_002.png" type="Texture" id=1]
 [ext_resource path="res://script/Player.cs" type="Script" id=2]
@@ -70,6 +70,10 @@
 [ext_resource path="res://textures/Player/Dying/0_Fallen_Angels_Dying_008.png" type="Texture" id=68]
 [ext_resource path="res://textures/Player/Dying/0_Fallen_Angels_Dying_009.png" type="Texture" id=69]
 [ext_resource path="res://textures/Player/Dying/0_Fallen_Angels_Dying_010.png" type="Texture" id=70]
+[ext_resource path="res://audio/footStep.ogg" type="AudioStream" id=71]
+[ext_resource path="res://audio/PlayerDie.ogg" type="AudioStream" id=72]
+[ext_resource path="res://audio/hit.ogg" type="AudioStream" id=73]
+[ext_resource path="res://audio/jump.ogg" type="AudioStream" id=74]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -78,9 +82,9 @@ animations = [ {
 "name": "Idle",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 36 ), ExtResource( 15 ), ExtResource( 35 ), ExtResource( 24 ), ExtResource( 32 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 29 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 19 ) ],
 "loop": true,
-"name": "Jump Loop",
+"name": "Runing",
 "speed": 30.0
 }, {
 "frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 61 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 63 ) ],
@@ -88,19 +92,19 @@ animations = [ {
 "name": "Dying",
 "speed": 20.0
 }, {
+"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 46 ) ],
+"loop": true,
+"name": "Hurt",
+"speed": 30.0
+}, {
 "frames": [ ExtResource( 37 ), ExtResource( 23 ), ExtResource( 34 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": false,
 "name": "Jump Start",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 36 ), ExtResource( 15 ), ExtResource( 35 ), ExtResource( 24 ), ExtResource( 32 ), ExtResource( 21 ), ExtResource( 16 ), ExtResource( 29 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 19 ) ],
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ) ],
 "loop": true,
-"name": "Runing",
-"speed": 30.0
-}, {
-"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 46 ) ],
-"loop": true,
-"name": "Hurt",
+"name": "Jump Loop",
 "speed": 30.0
 } ]
 
@@ -124,5 +128,23 @@ one_way_collision_margin = 0.0
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 74 )
+volume_db = -50.0
+
+[node name="HitSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 73 )
+volume_db = -40.0
+
+[node name="StepSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 71 )
+volume_db = -55.0
+pitch_scale = 0.6
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 72 )
+volume_db = -40.0
 [connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="finished" from="StepSound" to="." method="_on_StepSound_finished"]
