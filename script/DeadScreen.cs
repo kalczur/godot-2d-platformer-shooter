@@ -13,10 +13,20 @@ public class DeadScreen : Control
   {
     var playerName = GetNode<TextEdit>("TextEdit").Text;
     var saveGame = new File();
-    saveGame.Open("user://scoreBoard.save", File.ModeFlags.ReadWrite);
-    var content = saveGame.GetAsText();
-    saveGame.StoreString($"{content}\n{playerName}:{score}");
+    if (saveGame.FileExists("user://score.save"))
+    {
+      saveGame.Open("user://score.save", File.ModeFlags.ReadWrite);
+      var content = saveGame.GetAsText();
+      saveGame.StoreString($"{content}\n{playerName}:{score}");
+    }
+    else
+    {
+      saveGame.Open("user://score.save", File.ModeFlags.Write);
+      saveGame.StoreString($"{playerName}:{score}");
+    }
     saveGame.Close();
+
+    GetTree().ChangeScene("res://scene/TitleScreen.tscn");
   }
   public void _on_Retry_pressed()
   {

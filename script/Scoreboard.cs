@@ -11,10 +11,10 @@ public class Scoreboard : Node2D
     dynamicFont.Size = 80;
 
     var saveGame = new File();
-    if (!saveGame.FileExists("user://scoreBoard.save"))
+    if (!saveGame.FileExists("user://score.save"))
       return;
 
-    saveGame.Open("user://scoreBoard.save", File.ModeFlags.ReadWrite);
+    saveGame.Open("user://score.save", File.ModeFlags.Read);
 
     for (int i = 1; i < 11; i++)
     {
@@ -27,8 +27,6 @@ public class Scoreboard : Node2D
       else
         addElement($"{i}.");
     }
-
-    //saveGame.StoreString($"{content}\n{playerName} : {score}");
     saveGame.Close();
   }
   public void _on_Back_pressed()
