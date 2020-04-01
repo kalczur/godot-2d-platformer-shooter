@@ -14,10 +14,10 @@ Gun change: 1, 2, 3
 ```
 ### Items:
 ```
-- bomb: -50hp, spawn: 8s
+- bomb: -30hp, spawn: 8s
 - first aid kit: +50hp, spawn: 10s
 ```
 
-![Game screen. Version 0.01](https://raw.githubusercontent.com/kalczur/godot-2d-platformer-shooter/master/GameScreenv02.png)
+![Game screen. Version 0.01](https://raw.githubusercontent.com/kalczur/godot-2d-platformer-shooter/master/GameScreenv05.png)
 
 <i>godot version: 3.2</i>
