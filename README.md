@@ -14,7 +14,7 @@ Gun change: 1, 2, 3
 ```
 ### Items:
 ```
-- bomb: -50hp, spawn: 8s
+- bomb: -30hp, spawn: 8s
 - first aid kit: +50hp, spawn: 10s
 ```
 
