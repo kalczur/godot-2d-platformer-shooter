@@ -28,7 +28,7 @@ glow_blend_mode = 1
 blend_mode = 1
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 2609.46, 69.4733 )
+extents = Vector2( 3001.26, 69.4733 )
 
 [sub_resource type="CanvasItemMaterial" id=4]
 blend_mode = 1

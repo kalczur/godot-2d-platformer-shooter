@@ -1,0 +1,5 @@
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\bin\Debug\kill_fast.dll
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\bin\Debug\kill_fast.pdb
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\obj\Debug\kill_fast.csprojAssemblyReference.cache
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\obj\Debug\kill_fast.dll
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\obj\Debug\kill_fast.pdb

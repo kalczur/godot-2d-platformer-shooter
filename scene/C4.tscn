@@ -166,7 +166,7 @@ animations = [ {
 [node name="C4" type="RigidBody2D"]
 gravity_scale = 10.0
 script = ExtResource( 1 )
-hpValue = -40.0
+hpValue = -30.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.17482, 0.874119 )
@@ -187,7 +187,6 @@ rotation = -0.785398
 z_index = 1
 frames = SubResource( 19 )
 animation = "Idle"
-frame = 6
 playing = true
 
 [node name="UseSound" type="AudioStreamPlayer" parent="."]

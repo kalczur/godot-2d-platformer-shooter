@@ -1,16 +1,18 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://script/TitleScreen.cs" type="Script" id=1]
 [ext_resource path="res://scene/Scoreboard.tscn" type="PackedScene" id=2]
 [ext_resource path="res://audio/TremLoadingloopl.ogg" type="AudioStream" id=3]
 [ext_resource path="res://script/TitleScreenCamera.cs" type="Script" id=4]
 [ext_resource path="res://scene/Options.tscn" type="PackedScene" id=5]
+[ext_resource path="res://textures/titleScreenBackground.jpg" type="Texture" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://font/AmaticSC-Regular.ttf"
 
 [sub_resource type="DynamicFont" id=2]
 size = 100
+outline_size = 1
 font_data = SubResource( 1 )
 
 [sub_resource type="DynamicFontData" id=3]
@@ -38,6 +40,10 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 6 )
+offset = Vector2( 960, 540 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -123,10 +129,10 @@ position = Vector2( 1920, 0 )
 position = Vector2( -1920, 0 )
 
 [node name="Author" type="Label" parent="."]
-margin_left = 1662.1
-margin_top = 1019.05
-margin_right = 1890.1
-margin_bottom = 1052.05
+margin_left = 1500.31
+margin_top = 932.576
+margin_right = 1728.31
+margin_bottom = 965.576
 custom_fonts/font = SubResource( 6 )
 text = "Author:        Damian    Olszewski"
 __meta__ = {
@@ -140,7 +146,7 @@ pitch_scale = 3.0
 autoplay = true
 
 [node name="TitleScreenCamera" type="Camera2D" parent="."]
-anchor_mode = 0
+position = Vector2( 960, 540 )
 current = true
 smoothing_enabled = true
 script = ExtResource( 4 )
