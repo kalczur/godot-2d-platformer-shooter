@@ -113,10 +113,10 @@ autostart = true
 
 [node name="Score" type="Label" parent="."]
 material = SubResource( 4 )
-margin_left = 106.338
-margin_top = 84.8313
-margin_right = 451.338
-margin_bottom = 171.831
+margin_left = 132.894
+margin_top = 75.9792
+margin_right = 477.894
+margin_bottom = 162.979
 custom_fonts/font = SubResource( 6 )
 text = "0"
 __meta__ = {
@@ -124,7 +124,7 @@ __meta__ = {
 }
 
 [node name="PlayerHpBar" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1575.59, 110.958 )
+position = Vector2( 760, 80 )
 z_index = 2
 
 [node name="MusicBackground" type="AudioStreamPlayer" parent="."]

@@ -3,7 +3,7 @@
 [node name="PlayerHpBar" type="Node2D"]
 
 [node name="Red" type="ColorRect" parent="."]
-margin_right = 200.0
+margin_right = 400.0
 margin_bottom = 10.0
 color = Color( 1, 0, 0, 1 )
 __meta__ = {
@@ -11,7 +11,7 @@ __meta__ = {
 }
 
 [node name="Green" type="ColorRect" parent="."]
-margin_right = 200.0
+margin_right = 400.0
 margin_bottom = 10.0
 color = Color( 0, 1, 0, 1 )
 __meta__ = {

@@ -65,6 +65,7 @@ public class Enemy : Character
   }
   public void _on_Timer_timeout()
   {
+    GD.Print(Name);
     QueueFree();
   }
 }

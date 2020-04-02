@@ -86,14 +86,14 @@ animations = [ {
 "name": "Runing",
 "speed": 20.0
 }, {
+"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "Jump Loop",
+"speed": 20.0
+}, {
 "frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 64 ), ExtResource( 72 ), ExtResource( 61 ), ExtResource( 58 ), ExtResource( 71 ), ExtResource( 65 ), ExtResource( 63 ), ExtResource( 69 ), ExtResource( 66 ), ExtResource( 70 ) ],
 "loop": false,
 "name": "Dying",
-"speed": 20.0
-}, {
-"frames": [ ExtResource( 56 ), ExtResource( 52 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 51 ) ],
-"loop": false,
-"name": "Hurt",
 "speed": 20.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 22 ), ExtResource( 19 ), ExtResource( 21 ), ExtResource( 23 ) ],
@@ -101,9 +101,9 @@ animations = [ {
 "name": "Jump Start",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 3 ), ExtResource( 24 ), ExtResource( 31 ), ExtResource( 9 ) ],
-"loop": true,
-"name": "Jump Loop",
+"frames": [ ExtResource( 56 ), ExtResource( 52 ), ExtResource( 57 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 53 ), ExtResource( 54 ), ExtResource( 50 ), ExtResource( 55 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 51 ) ],
+"loop": false,
+"name": "Hurt",
 "speed": 20.0
 } ]
 

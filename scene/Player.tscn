@@ -87,24 +87,24 @@ animations = [ {
 "name": "Runing",
 "speed": 30.0
 }, {
+"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ) ],
+"loop": true,
+"name": "Jump Loop",
+"speed": 30.0
+}, {
 "frames": [ ExtResource( 59 ), ExtResource( 60 ), ExtResource( 62 ), ExtResource( 61 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ), ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 63 ) ],
 "loop": false,
 "name": "Dying",
 "speed": 20.0
-}, {
-"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 46 ) ],
-"loop": true,
-"name": "Hurt",
-"speed": 30.0
 }, {
 "frames": [ ExtResource( 37 ), ExtResource( 23 ), ExtResource( 34 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 31 ) ],
 "loop": false,
 "name": "Jump Start",
 "speed": 30.0
 }, {
-"frames": [ ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 43 ), ExtResource( 42 ) ],
+"frames": [ ExtResource( 44 ), ExtResource( 45 ), ExtResource( 47 ), ExtResource( 54 ), ExtResource( 49 ), ExtResource( 48 ), ExtResource( 50 ), ExtResource( 53 ), ExtResource( 55 ), ExtResource( 52 ), ExtResource( 51 ), ExtResource( 46 ) ],
 "loop": true,
-"name": "Jump Loop",
+"name": "Hurt",
 "speed": 30.0
 } ]
 
@@ -113,7 +113,7 @@ extents = Vector2( 10.8528, 35.7744 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 2 )
-hp = 200.0
+hp = 400.0
 speed = 400
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]

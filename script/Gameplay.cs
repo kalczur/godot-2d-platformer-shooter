@@ -17,7 +17,6 @@ public class Gameplay : Node2D
   Camera2D camera;
   Label score;
   Timer enemySpawnTimer;
-  bool nwm = false;
 
   public override void _Ready()
   {
