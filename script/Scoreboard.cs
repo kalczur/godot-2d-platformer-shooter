@@ -1,6 +1,7 @@
 using Godot;
 using System;
-
+using System.Linq;
+using System.Collections.Generic;
 public class Scoreboard : Node2D
 {
   private int yPositionSpawn = 0;
@@ -10,23 +11,28 @@ public class Scoreboard : Node2D
     dynamicFont.FontData = ResourceLoader.Load("res://font/Amatic-Bold.ttf") as DynamicFontData;
     dynamicFont.Size = 80;
 
+    Dictionary<string, uint> scoreDictionary = new Dictionary<string, uint>();
     var saveGame = new File();
+
     if (!saveGame.FileExists("user://score.save"))
       return;
-
     saveGame.Open("user://score.save", File.ModeFlags.Read);
 
-    for (int i = 1; i < 11; i++)
+    while (!saveGame.EofReached())
     {
-      if (!saveGame.EofReached())
-      {
-        var content = saveGame.GetLine();
-        string[] separate = content.Split(':');
-        addElement($"{i}.{separate[0]}:  {separate[1]}");
-      }
-      else
-        addElement($"{i}.");
+      var content = saveGame.GetLine();
+      string[] separate = content.Split(':');
+      scoreDictionary.Add(separate[0], uint.Parse(separate[1]));
     }
+
+    for (int i = 0; i < 10; i++)
+    {
+      if (scoreDictionary.Count > i)
+        addElement($"{i + 1}. {scoreDictionary.OrderByDescending(key => key.Value).ElementAt(i).Key} :   {scoreDictionary.OrderByDescending(key => key.Value).ElementAt(i).Value}");
+      else
+        addElement($"{i + 1}");
+    }
+
     saveGame.Close();
   }
   public void _on_Back_pressed()

@@ -1,9 +1,10 @@
 using Godot;
-using System;
+using System.IO;
 
 public class DeadScreen : Control
 {
   public string score;
+  private bool found = false;
 
   public override void _Ready()
   {
@@ -12,16 +13,31 @@ public class DeadScreen : Control
   public void _on_Save_pressed()
   {
     var playerName = GetNode<TextEdit>("TextEdit").Text;
-    var saveGame = new File();
+    var saveGame = new Godot.File();
     if (saveGame.FileExists("user://score.save"))
     {
-      saveGame.Open("user://score.save", File.ModeFlags.ReadWrite);
-      var content = saveGame.GetAsText();
-      saveGame.StoreString($"{content}\n{playerName}:{score}");
+      saveGame.Open("user://score.save", Godot.File.ModeFlags.ReadWrite);
+      string[] content = saveGame.GetAsText().Split("\n");
+      for (int i = 0; i < content.Length; i++)
+      {
+        string[] separated = content[i].Split(':');
+        if (separated[0] == playerName)
+        {
+          found = true;
+          if (uint.Parse(separated[1]) < uint.Parse(score))
+          {
+            content[i] = $"{playerName}:{score}";
+            saveGame.StoreString($"{string.Join("\n", content)}");
+            break;
+          }
+        }
+      }
+      if (!found)
+        saveGame.StoreString($"{string.Join("\n", content)}\n{playerName}:{score}");
     }
     else
     {
-      saveGame.Open("user://score.save", File.ModeFlags.Write);
+      saveGame.Open("user://score.save", Godot.File.ModeFlags.Write);
       saveGame.StoreString($"{playerName}:{score}");
     }
     saveGame.Close();
