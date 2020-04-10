@@ -19,6 +19,7 @@ public class Gun : Node2D
   {
     animatedSprite = GetNode("FireAnimatedSprite") as AnimatedSprite;
     shootSound = GetNode("ShootSound") as AudioStreamPlayer;
+    shootSound.VolumeDb = DataManager.GetMasterVolume() * DataManager.GetEffectsVolume();
   }
   public virtual void shot(Vector2 where, float damage)
   {

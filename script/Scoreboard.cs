@@ -30,7 +30,7 @@ public class Scoreboard : Node2D
       if (scoreDictionary.Count > i)
         addElement($"{i + 1}. {scoreDictionary.OrderByDescending(key => key.Value).ElementAt(i).Key} :   {scoreDictionary.OrderByDescending(key => key.Value).ElementAt(i).Value}");
       else
-        addElement($"{i + 1}");
+        addElement($"{i + 1}.");
     }
 
     saveGame.Close();

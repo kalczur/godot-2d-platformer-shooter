@@ -9,6 +9,7 @@ public class Enemy : Character
     isDead = false;
     gravity = 40;
     baseHp = hp;
+    effectsVolume = DataManager.GetMasterVolume() * DataManager.GetEffectsVolume();
     velocity = new Vector2();
     hpBar = GetNode("HpBar/Green") as ColorRect;
     gunNode = GetNode("Gun") as Gun;
@@ -17,6 +18,7 @@ public class Enemy : Character
     score = GetTree().Root.GetNode("Gameplay/Score") as Label;
     charcterAnimatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
     dieSound = GetNode("DieSound") as AudioStreamPlayer;
+    dieSound.VolumeDb = effectsVolume;
   }
   public override void _PhysicsProcess(float delta)
   {

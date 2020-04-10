@@ -9,6 +9,7 @@ public class Character : KinematicBody2D
   protected int speed;
   public float baseHp;
   protected int gravity;
+  protected float effectsVolume;
   protected Vector2 velocity;
   protected Vector2 floor = new Vector2(0, -1);
   protected Vector2 scale = new Vector2(-1, 1);

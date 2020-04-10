@@ -1,0 +1,8 @@
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\obj\Tools\Kill them all.csprojAssemblyReference.cache
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\bin\Tools\Kill them all.dll
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\bin\Tools\Kill them all.pdb
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\obj\Tools\Kill them all.dll
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\obj\Tools\Kill them all.pdb
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\bin\Tools\Newtonsoft.Json.dll
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\bin\Tools\Newtonsoft.Json.xml
+E:\Godot\godot-2d-platformer-shooter\.mono\temp\obj\Tools\Kill them all.csproj.CopyComplete

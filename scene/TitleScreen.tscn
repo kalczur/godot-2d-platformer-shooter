@@ -47,7 +47,6 @@ offset = Vector2( 960, 540 )
 
 [node name="Background2" type="Sprite" parent="."]
 modulate = Color( 0.298039, 0.298039, 0.298039, 1 )
-position = Vector2( 9.07568, 9.07568 )
 texture = ExtResource( 6 )
 offset = Vector2( 2880, 540 )
 

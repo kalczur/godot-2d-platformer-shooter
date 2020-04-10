@@ -1,8 +1,17 @@
 using Godot;
-using System;
 
 public class TitleScreen : Control
 {
+  private AudioStreamPlayer backgroundMusic = new AudioStreamPlayer();
+
+  public override void _Ready()
+  {
+    backgroundMusic = GetNode("AudioStreamPlayer") as AudioStreamPlayer;
+  }
+  public void ChangeMusicVolume(float db, float scale)
+  {
+    backgroundMusic.VolumeDb = db * scale;
+  }
   public void _on_NewGame_pressed()
   {
     GetTree().ChangeScene("res://scene/Gameplay.tscn");

@@ -11,6 +11,7 @@ public class Item : RigidBody2D
   {
     animatedSprite = GetNode("AnimatedSprite") as AnimatedSprite;
     useSound = GetNode("UseSound") as AudioStreamPlayer;
+    useSound.VolumeDb = DataManager.GetMasterVolume() * DataManager.GetEffectsVolume();
   }
   public virtual void _on_Area2D_body_entered(System.Object body)
   {

@@ -20,6 +20,7 @@ public class Player : Character
     velocity = new Vector2();
     floor = new Vector2(0, -1);
     gravity = 40;
+    effectsVolume = DataManager.GetMasterVolume() * DataManager.GetEffectsVolume();
     gun1 = GD.Load("res://scene/Gun1.tscn") as PackedScene;
     gun2 = GD.Load("res://scene/Gun2.tscn") as PackedScene;
     gun3 = GD.Load("res://scene/Gun3.tscn") as PackedScene;
@@ -34,6 +35,7 @@ public class Player : Character
     stepSound = GetNode("StepSound") as AudioStreamPlayer;
     hitSound = GetNode("HitSound") as AudioStreamPlayer;
     dieSound = GetNode("DieSound") as AudioStreamPlayer;
+    jumpSound.VolumeDb = stepSound.VolumeDb = hitSound.VolumeDb = dieSound.VolumeDb = effectsVolume;
   }
   public override void _PhysicsProcess(float delta)
   {

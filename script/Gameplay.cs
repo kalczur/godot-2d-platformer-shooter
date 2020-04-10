@@ -25,6 +25,8 @@ public class Gameplay : Node2D
     score = GetNode("Score") as Label;
     enemySpawnTimer = GetNode("EnemySpawnTimer") as Timer;
     backgroundMusic = GetNode("MusicBackground") as AudioStreamPlayer;
+    DataManager.ReadSaveFile();
+    backgroundMusic.VolumeDb = DataManager.GetMasterVolume() * DataManager.GetMusicVolume();
   }
   public override void _Process(float delta)
   {
