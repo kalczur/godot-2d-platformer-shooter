@@ -37,6 +37,7 @@ public class Options : Node2D
   public void _on_FullScreenCheckBox_toggled(bool isPressed)
   {
     // TO DO
+    // Nie wiem czy jest sens to robic
   }
   public void _on_Back_pressed()
   {

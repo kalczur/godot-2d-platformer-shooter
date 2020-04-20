@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GameScreenv05.png-a24aca2075caf0f4eae14a1a423d966e.stex"
+path="res://.import/GameScreen.png-634e712b5c5b08f7ccba1289fe3cfeba.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GameScreenv05.png"
-dest_files=[ "res://.import/GameScreenv05.png-a24aca2075caf0f4eae14a1a423d966e.stex" ]
+source_file="res://Game look history [screenshots]/GameScreen.png"
+dest_files=[ "res://.import/GameScreen.png-634e712b5c5b08f7ccba1289fe3cfeba.stex" ]
 
 [params]
 

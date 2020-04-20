@@ -5,8 +5,10 @@ public class Item : RigidBody2D
 {
   [Export]
   public float hpValue = 50;
+
   protected AnimatedSprite animatedSprite;
   AudioStreamPlayer useSound;
+  
   public override void _Ready()
   {
     animatedSprite = GetNode("AnimatedSprite") as AnimatedSprite;

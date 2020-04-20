@@ -30,6 +30,8 @@ public class Gameplay : Node2D
   }
   public override void _Process(float delta)
   {
+  	// w zależności od położenia gracza
+  	// kamera się przlibliża lub oddala
     playerDistanceFromCentre = (float)Math.Sqrt((float)Math.Pow((playerNode.GlobalPosition.x - 960), 2) + Math.Pow(playerNode.GlobalPosition.y - 540, 2));
     var zoom = (0.95f + zoomScale * playerDistanceFromCentre) > 1 ? 1 : (0.95f + zoomScale * playerDistanceFromCentre);
     camera.Zoom = new Vector2(zoom, zoom);
@@ -56,6 +58,9 @@ public class Gameplay : Node2D
   }
   public void _on_EnemySpawnTimer_timeout()
   {
+  	// gdy timer skończy odliczanie pojawia się
+  	// losowy jeden z trzech przeciwników
+
     int randomNumber = random.Next(100);
     if (randomNumber < 33)
       Spawn(enemy1);
@@ -75,6 +80,10 @@ public class Gameplay : Node2D
   }
   public void _on_AddPointTimer_timeout()
   {
+  	// w czasie gry co sekunde dodajs się punkt,
+  	// muzyka w tle przyśpiesza oraz przeciwnicy
+  	// coraz szybciej się pojawiają
+
     score.Text = $"{uint.Parse(score.Text) + 1}";
     if (enemySpawnTimer.WaitTime > 1)
       enemySpawnTimer.WaitTime -= 0.01f;

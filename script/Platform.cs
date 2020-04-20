@@ -11,6 +11,9 @@ public class Platform : KinematicBody2D
     velocity.x = -speed;
     MoveAndCollide(velocity * delta);
 
+    // gdy platforma wyjdzie poza lewą część ekranu
+    // pojawia się z prawej strony w loswym miejscu osi Y
+    // (symuluje losowe gnerowanie platform)
     if (GlobalPosition.x <= -340)
     {
       GlobalPosition = new Vector2(2260, (float)GD.RandRange(100, 900));

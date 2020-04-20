@@ -80,6 +80,8 @@ public class Player : Character
           jumpSound.Play();
         }
 
+
+      // wybór broni
       if (Input.IsActionJustPressed("gun_1") && currentGun != 1)
       {
         GetNode("gun").Free();
@@ -108,6 +110,8 @@ public class Player : Character
         gunSprite = gunNode.GetNode("Sprite") as Sprite;
       }
 
+      // zliczanie wykonanych skoków
+      // aby umożliwić tylko 3 za jednym razem
       if (jupmCount > 0)
         velocity.y += gravity;
       else

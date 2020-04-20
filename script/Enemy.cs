@@ -4,6 +4,7 @@ public class Enemy : Character
 {
   [Export]
   public int enemyPoints = 150;
+  
   public override void _Ready()
   {
     isDead = false;
@@ -67,6 +68,8 @@ public class Enemy : Character
   }
   public void _on_Timer_timeout()
   {
+  	// gdy skończy się animacja umierania to włacza się timer
+  	// po odliczeniu 1s usuwa obiekt
     QueueFree();
   }
 }

@@ -7,6 +7,7 @@ public class TitleScreenCamera : Camera2D
 
   public override void _Process(float delta)
   {
+  	//przybliżanie i oddalanie kamery w czasie
     float tempZoom = Zoom.x;
     if (where)
     {

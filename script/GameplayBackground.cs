@@ -17,6 +17,10 @@ public class GameplayBackground : ParallaxBackground
 
   public override void _Process(float delta)
   {
+  	// dla 2 warstw tła 2 obrazy odwrócone względem siebie
+  	// lecą w lewo i gdy któryś opuści całkowicie ekran z lewej strony
+  	// pojawia się z prawej przez co tło jest cały czas w widoczne
+
     back1.Offset = new Vector2(back1.Offset.x - 0.5f, -100);
     back2.Offset = new Vector2(back2.Offset.x - 0.5f, -100);
     fore1.Offset = new Vector2(fore1.Offset.x - 1, -100);

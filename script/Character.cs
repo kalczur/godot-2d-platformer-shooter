@@ -7,6 +7,7 @@ public class Character : KinematicBody2D
   public float hp;
   [Export]
   protected int speed;
+
   public float baseHp;
   protected int gravity;
   protected float effectsVolume;
@@ -28,7 +29,9 @@ public class Character : KinematicBody2D
   public virtual void UpdateHp(float damgae) { }
 
   public void _on_AnimatedSprite_animation_finished()
-  {
+  { 
+    // gdy animacja umierania się skończy włacza się timer (1s)
+
     if (charcterAnimatedSprite.Animation == "Dying")
       GetNode<Timer>("Timer").Start();
   }
