@@ -18,6 +18,6 @@ Gun change: 1, 2, 3
 - first aid kit: +50hp, spawn: 10s
 ```
 
-![Game screen. Version 0.01](https://raw.githubusercontent.com/kalczur/godot-2d-platformer-shooter/master/GameScreenv05.png)
+![Game screen. Version 0.5](https://raw.githubusercontent.com/kalczur/godot-2d-platformer-shooter/master/Game%20look%20history%20%5Bscreenshots%5D/GameScreenv05.png)
 
 <i>godot version: 3.2</i>
