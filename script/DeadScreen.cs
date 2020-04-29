@@ -1,7 +1,7 @@
 using Godot;
 using System.IO;
 
-public class DeadScreen : Control
+public sealed class DeadScreen : Control
 {
     public string score;
     private bool found = false;

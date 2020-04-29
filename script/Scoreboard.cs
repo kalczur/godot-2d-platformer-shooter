@@ -1,8 +1,8 @@
 using Godot;
-using System;
 using System.Linq;
 using System.Collections.Generic;
-public class Scoreboard : Node2D
+
+public sealed class Scoreboard : Node2D
 {
     private int yPositionSpawn = 0;
     private DynamicFont dynamicFont = new DynamicFont();

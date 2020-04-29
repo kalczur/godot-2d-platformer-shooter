@@ -1,14 +1,10 @@
 using Godot;
-using System;
 
-public class Lava : Area2D
+public sealed class Lava : Area2D
 {
-  public void _on_Lava_body_entered(System.Object body)
-  {
-    if (body is Character)
+    public void _on_Lava_body_entered(System.Object body)
     {
-      Character character = body as Character;
-      character.Kill();
+        if (body is Character)
+            ((Character)body).Kill();
     }
-  }
 }

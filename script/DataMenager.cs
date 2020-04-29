@@ -1,9 +1,8 @@
 using Godot;
 using Newtonsoft.Json;
 
-
 //logika zarządzania danymi zaczerpnieta z poradnika na yt
-public class DataManager : Node
+public sealed class DataManager : Node
 {
     private const string SAVE_PATH = "user://config.json";
     private static OptionDataModel data = new OptionDataModel();
